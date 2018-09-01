@@ -58,6 +58,7 @@ public class InventoryManager : BaseManager<InventoryManager> {
     private void AttachObjectToInventory() {
         if (_grabbedIngredient != null) {
             KillTweens();
+            _grabbedIngredient._OnConveyorBelt = false;
             _grabbedIngredient.transform.transform.parent = PlayerManager.InventoryTransform;
             _objectMoveTween = _grabbedIngredient.transform.DOLocalMove(Vector3.zero, _objectAnimationTime).SetEase(_objectAnimationCurve);
             _objectRotateTween = _grabbedIngredient.transform.DOLocalRotate(Quaternion.identity.eulerAngles, _objectAnimationTime).SetEase(_objectAnimationCurve);

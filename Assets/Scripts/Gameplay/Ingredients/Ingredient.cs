@@ -40,6 +40,7 @@ public class Ingredient : MonoBehaviour {
     #endregion // TRAITS
 
     public float _ConveyorSpeed;
+    public bool _OnConveyorBelt = true;
 
     #endregion // ATTRIBUTES
 
@@ -66,7 +67,10 @@ public class Ingredient : MonoBehaviour {
 
     public void Update()
     {
-        transform.Translate(transform.forward * _ConveyorSpeed * Time.deltaTime);
+        if (_OnConveyorBelt)
+        {
+            transform.Translate(transform.forward * _ConveyorSpeed * Time.deltaTime);
+        }
     }
 
     public SComparisonScore Compare(Ingredient other)
