@@ -7,32 +7,28 @@ public class Ingredient : MonoBehaviour {
     #region TRAITS
 
     [Header("Color")]
-
-    public Color _color;
+    [SerializeField] private Color _color;
 
     [Range(0, 1)]
     public float _colorWeight = 0.5f;
     
     [Header("Solidity")]
-
     [Range(0, 1)]
-    public float _solidity;
+    [SerializeField] private float _solidity;
 
     [Range(0, 1)]
     public float _solidityWeight = 0.5f;
 
     [Header("Length")]
-
     [Range(0, 1)]
-    public float _length;
+    [SerializeField] private float _length;
 
     [Range(0, 1)]
     public float _lengthWeight = 0.5f;
 
     [Header("Temperature")]
-
     [Range(0, 1)]
-    public float _temperature;
+    [SerializeField] private float _temperature;
 
     [Range(0, 1)]
     public float _temperatureWeight = 0.5f;
@@ -40,11 +36,45 @@ public class Ingredient : MonoBehaviour {
     #endregion // TRAITS
 
     public float _ConveyorSpeed;
+    [HideInInspector] public bool _OnConveyorBelt = false;
 
-    [HideInInspector]
-    public bool _OnConveyorBelt = false;
+    private Transform _visuals;
+
+    private float _currentLenghtChange = 0f;
+    private float _lenghtChangeMax = 0.25f;
+
+    private float _currentSolidityChange = 0f;
+    private float _solidityChangeMax = 0.25f;
+
+    private float _currentTemperatureChange = 0f;
+    private float _temperatureChangeMax = 0.25f;
+
+    private Color _currentColorOverride = Color.white;
+    private bool _colorChanged = false;
 
     #endregion // ATTRIBUTES
+
+    #region Getters 
+
+    public float Temperature {
+        get { return _temperature + _currentTemperatureChange; }
+    }
+    public float Lenght
+    {
+        get { return _length + _currentLenghtChange; }
+    }
+    public float Solidity
+    {
+        get { return _solidity + _currentSolidityChange; }
+    }
+    public Color Color
+    {
+        get {
+            return _colorChanged? _currentColorOverride : _color;
+        }
+    }
+
+    #endregion
 
     public struct SComparisonScore
     {
@@ -65,6 +95,7 @@ public class Ingredient : MonoBehaviour {
 
     public void Awake() {
         gameObject.layer = 9; //Ingredient layer
+        _visuals = transform.Find("Visuals");
     }
 
     public void Update()
@@ -109,5 +140,17 @@ public class Ingredient : MonoBehaviour {
     private float GetScore(float myStat, float otherStat)
     {
         return 1 - Mathf.Abs(myStat - otherStat);
+    }
+
+    public void ChangeLenght(float change) {
+        _currentLenghtChange += change;
+        _currentLenghtChange = Mathf.Clamp(_currentLenghtChange, -_lenghtChangeMax, _lenghtChangeMax);
+
+        _visuals.localScale = new Vector3(1f - _currentLenghtChange, 1f + _currentLenghtChange, 1f - _currentLenghtChange);
+    }
+
+    public void ChangeColor(Color color) {
+        _colorChanged = true;
+        _currentColorOverride = color;
     }
 }

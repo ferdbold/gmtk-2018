@@ -7,8 +7,8 @@ public class PreparationStation : WorkStation {
 
     public static event Action OnPreparationStationUsed;
 
-    public override void UseStation() {
-        base.UseStation();
+    public override void UseStation(Ingredient ingredient) {
+        base.UseStation(ingredient);
 
         if (OnPreparationStationUsed != null) OnPreparationStationUsed();
     }

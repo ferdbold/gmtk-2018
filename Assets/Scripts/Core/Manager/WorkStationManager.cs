@@ -77,12 +77,12 @@ public class WorkStationManager : BaseManager<WorkStationManager> {
     }
 
     private void HandleStationUse() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (_selectedStation != null && Input.GetMouseButtonDown(0)) {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100.0f, _workstationLayer)) {
-                if(hit.collider.gameObject.gameObject == _selectedStation.gameObject) {
-                    _selectedStation.UseStation();
+                if(hit.collider.gameObject == _selectedStation.gameObject) {
+                    _selectedStation.UseStation(InventoryManager.GrabbedIngredient());
                 }
             }
         }

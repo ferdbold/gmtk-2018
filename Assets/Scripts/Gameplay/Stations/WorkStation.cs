@@ -53,7 +53,7 @@ public class WorkStation : MonoBehaviour {
         if (OnStationUnselected != null) OnStationUnselected(this);
     }
 
-    public virtual void UseStation() {
+    public virtual void UseStation(Ingredient ingredient) {
         _animator.SetTrigger(_animatorUsedHash);
         if (OnStationUsed != null) OnStationUsed(this);
     }

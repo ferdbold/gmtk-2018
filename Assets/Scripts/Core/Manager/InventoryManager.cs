@@ -110,5 +110,9 @@ public class InventoryManager : BaseManager<InventoryManager> {
         return Instance._grabbedIngredient != null;
     }
 
+    public static Ingredient GrabbedIngredient() {
+        return Instance._grabbedIngredient;
+    }
+
     #endregion
 }

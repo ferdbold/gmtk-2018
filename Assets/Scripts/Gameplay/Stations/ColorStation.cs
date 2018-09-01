@@ -51,9 +51,6 @@ public class ColorStation : WorkStation {
     public override void UpdateStation(float deltaTime) {
         base.UpdateStation(deltaTime);
 
-        //UpdateColor();
-
-
         if (_grabbedSlider == null) {
             if(Input.GetMouseButtonDown(0)) {
                 RaycastHit hit;
@@ -96,8 +93,8 @@ public class ColorStation : WorkStation {
         }
     }
 
-    public override void UseStation() {
-        base.UseStation();
+    public override void UseStation(Ingredient ingredient) {
+        base.UseStation(ingredient);
 
         if (OnColorStationUsed != null) OnColorStationUsed();
     }
