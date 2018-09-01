@@ -1,0 +1,435 @@
+fileFormatVersion: 2
+guid: 298b3681e5042554ba5e1af9fb36c1a2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Counter
+    100004: Cuisine
+    100006: Floor
+    100008: Handle_01
+    100010: Handle_02
+    100012: pCube10
+    100014: pCube11
+    100016: pCube12
+    100018: pCube14
+    100020: pCube15
+    100022: pCube16
+    100024: pCube17
+    100026: pCube18
+    100028: pCube19
+    100030: pCube20
+    100032: pCube21
+    100034: pCube22
+    100036: pCube23
+    100038: pCube24
+    100040: pCube25
+    100042: pCube26
+    100044: pCube27
+    100046: pCube27 1
+    100048: pCube28
+    100050: pCube9
+    100052: pCylinder17
+    100054: pCylinder18
+    100056: pCylinder19
+    100058: pCylinder20
+    100060: pCylinder21
+    100062: pCylinder22
+    100064: pCylinder23
+    100066: pCylinder24
+    100068: pCylinder25
+    100070: pCylinder26
+    100072: polySurface1
+    100074: polySurface2
+    100076: PrepStation
+    100078: PressStation
+    100080: pTorus1
+    100082: pTorus1 1
+    100084: pTorus10
+    100086: pTorus11
+    100088: pTorus12
+    100090: pTorus13
+    100092: pTorus14
+    100094: pTorus15
+    100096: pTorus16
+    100098: pTorus17
+    100100: pTorus18
+    100102: pTorus19
+    100104: pTorus2
+    100106: pTorus2 1
+    100108: pTorus20
+    100110: pTorus21
+    100112: pTorus22
+    100114: pTorus23
+    100116: pTorus24
+    100118: pTorus3
+    100120: pTorus3 1
+    100122: pTorus4
+    100124: pTorus4 1
+    100126: pTorus5
+    100128: pTorus5 1
+    100130: pTorus6
+    100132: pTorus6 1
+    100134: pTorus7
+    100136: pTorus7 1
+    100138: pTorus8
+    100140: pTorus8 1
+    100142: pTorus9
+    100144: SpawnStation
+    100146: transform1
+    400000: //RootNode
+    400002: Counter
+    400004: Cuisine
+    400006: Floor
+    400008: Handle_01
+    400010: Handle_02
+    400012: pCube10
+    400014: pCube11
+    400016: pCube12
+    400018: pCube14
+    400020: pCube15
+    400022: pCube16
+    400024: pCube17
+    400026: pCube18
+    400028: pCube19
+    400030: pCube20
+    400032: pCube21
+    400034: pCube22
+    400036: pCube23
+    400038: pCube24
+    400040: pCube25
+    400042: pCube26
+    400044: pCube27
+    400046: pCube27 1
+    400048: pCube28
+    400050: pCube9
+    400052: pCylinder17
+    400054: pCylinder18
+    400056: pCylinder19
+    400058: pCylinder20
+    400060: pCylinder21
+    400062: pCylinder22
+    400064: pCylinder23
+    400066: pCylinder24
+    400068: pCylinder25
+    400070: pCylinder26
+    400072: polySurface1
+    400074: polySurface2
+    400076: PrepStation
+    400078: PressStation
+    400080: pTorus1
+    400082: pTorus1 1
+    400084: pTorus10
+    400086: pTorus11
+    400088: pTorus12
+    400090: pTorus13
+    400092: pTorus14
+    400094: pTorus15
+    400096: pTorus16
+    400098: pTorus17
+    400100: pTorus18
+    400102: pTorus19
+    400104: pTorus2
+    400106: pTorus2 1
+    400108: pTorus20
+    400110: pTorus21
+    400112: pTorus22
+    400114: pTorus23
+    400116: pTorus24
+    400118: pTorus3
+    400120: pTorus3 1
+    400122: pTorus4
+    400124: pTorus4 1
+    400126: pTorus5
+    400128: pTorus5 1
+    400130: pTorus6
+    400132: pTorus6 1
+    400134: pTorus7
+    400136: pTorus7 1
+    400138: pTorus8
+    400140: pTorus8 1
+    400142: pTorus9
+    400144: SpawnStation
+    400146: transform1
+    2100000: lambert3
+    2100002: lambert4
+    2100004: lambert1
+    2100006: lambert5
+    2100008: lambert8
+    2100010: lambert7
+    2100012: lambert6
+    2300000: pCube10
+    2300002: pCube11
+    2300004: pCube12
+    2300006: pCube14
+    2300008: pCube15
+    2300010: pCube16
+    2300012: pCube17
+    2300014: pCube18
+    2300016: pCube19
+    2300018: pCube20
+    2300020: pCube21
+    2300022: pCube22
+    2300024: pCube23
+    2300026: pCube24
+    2300028: pCube25
+    2300030: pCube26
+    2300032: pCube27
+    2300034: pCube27 1
+    2300036: pCube28
+    2300038: pCube9
+    2300040: pCylinder17
+    2300042: pCylinder18
+    2300044: pCylinder19
+    2300046: pCylinder20
+    2300048: pCylinder21
+    2300050: pCylinder22
+    2300052: pCylinder23
+    2300054: pCylinder24
+    2300056: pCylinder25
+    2300058: pCylinder26
+    2300060: polySurface1
+    2300062: polySurface2
+    2300064: pTorus1
+    2300066: pTorus1 1
+    2300068: pTorus10
+    2300070: pTorus11
+    2300072: pTorus12
+    2300074: pTorus13
+    2300076: pTorus14
+    2300078: pTorus15
+    2300080: pTorus16
+    2300082: pTorus17
+    2300084: pTorus18
+    2300086: pTorus19
+    2300088: pTorus2
+    2300090: pTorus2 1
+    2300092: pTorus20
+    2300094: pTorus21
+    2300096: pTorus22
+    2300098: pTorus23
+    2300100: pTorus24
+    2300102: pTorus3
+    2300104: pTorus3 1
+    2300106: pTorus4
+    2300108: pTorus4 1
+    2300110: pTorus5
+    2300112: pTorus5 1
+    2300114: pTorus6
+    2300116: pTorus6 1
+    2300118: pTorus7
+    2300120: pTorus7 1
+    2300122: pTorus8
+    2300124: pTorus8 1
+    2300126: pTorus9
+    3300000: pCube10
+    3300002: pCube11
+    3300004: pCube12
+    3300006: pCube14
+    3300008: pCube15
+    3300010: pCube16
+    3300012: pCube17
+    3300014: pCube18
+    3300016: pCube19
+    3300018: pCube20
+    3300020: pCube21
+    3300022: pCube22
+    3300024: pCube23
+    3300026: pCube24
+    3300028: pCube25
+    3300030: pCube26
+    3300032: pCube27
+    3300034: pCube27 1
+    3300036: pCube28
+    3300038: pCube9
+    3300040: pCylinder17
+    3300042: pCylinder18
+    3300044: pCylinder19
+    3300046: pCylinder20
+    3300048: pCylinder21
+    3300050: pCylinder22
+    3300052: pCylinder23
+    3300054: pCylinder24
+    3300056: pCylinder25
+    3300058: pCylinder26
+    3300060: polySurface1
+    3300062: polySurface2
+    3300064: pTorus1
+    3300066: pTorus1 1
+    3300068: pTorus10
+    3300070: pTorus11
+    3300072: pTorus12
+    3300074: pTorus13
+    3300076: pTorus14
+    3300078: pTorus15
+    3300080: pTorus16
+    3300082: pTorus17
+    3300084: pTorus18
+    3300086: pTorus19
+    3300088: pTorus2
+    3300090: pTorus2 1
+    3300092: pTorus20
+    3300094: pTorus21
+    3300096: pTorus22
+    3300098: pTorus23
+    3300100: pTorus24
+    3300102: pTorus3
+    3300104: pTorus3 1
+    3300106: pTorus4
+    3300108: pTorus4 1
+    3300110: pTorus5
+    3300112: pTorus5 1
+    3300114: pTorus6
+    3300116: pTorus6 1
+    3300118: pTorus7
+    3300120: pTorus7 1
+    3300122: pTorus8
+    3300124: pTorus8 1
+    3300126: pTorus9
+    4300000: polySurface1
+    4300002: polySurface2
+    4300004: pCube24
+    4300006: pCube23
+    4300008: pCube14
+    4300010: pCube15
+    4300012: pCube16
+    4300014: pCube10
+    4300016: pCube28
+    4300018: pCube11
+    4300020: pCube12
+    4300022: pCube9
+    4300024: pCube25
+    4300026: pCylinder18
+    4300028: pCylinder17
+    4300030: pCube17
+    4300032: pCube18
+    4300034: pCube19
+    4300036: pCube20
+    4300038: pCube21
+    4300040: pCube22
+    4300042: pCube26
+    4300044: pTorus5
+    4300046: pTorus6
+    4300048: pTorus7
+    4300050: pTorus8
+    4300052: pTorus3
+    4300054: pTorus2
+    4300056: pTorus4
+    4300058: pCube27
+    4300060: pTorus1
+    4300062: pTorus9
+    4300064: pTorus10
+    4300066: pTorus11
+    4300068: pTorus12
+    4300070: pTorus13
+    4300072: pTorus14
+    4300074: pTorus15
+    4300076: pTorus16
+    4300078: pTorus5
+    4300080: pTorus6
+    4300082: pTorus7
+    4300084: pTorus8
+    4300086: pTorus3
+    4300088: pTorus2
+    4300090: pTorus4
+    4300092: pCube27
+    4300094: pTorus1
+    4300096: pTorus17
+    4300098: pTorus18
+    4300100: pTorus19
+    4300102: pTorus20
+    4300104: pTorus21
+    4300106: pTorus22
+    4300108: pTorus23
+    4300110: pTorus24
+    4300112: pCylinder19
+    4300114: pCylinder20
+    4300116: pCylinder21
+    4300118: pCylinder22
+    4300120: pCylinder23
+    4300122: pCylinder24
+    4300124: pCylinder25
+    4300126: pCylinder26
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
