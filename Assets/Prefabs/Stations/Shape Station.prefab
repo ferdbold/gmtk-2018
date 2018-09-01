@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 95971965016387834}
   - component: {fileID: 65474899093173622}
   - component: {fileID: 114431258441989914}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shape Station
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,8 +358,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6, z: 0.5}
-  m_Center: {x: 0, y: 0.2, z: 0.15}
+  m_Size: {x: 0.7, y: 0.6, z: 0.5}
+  m_Center: {x: 0.025, y: 0.2, z: 0.15}
 --- !u!95 &95971965016387834
 Animator:
   serializedVersion: 3
@@ -369,7 +369,7 @@ Animator:
   m_GameObject: {fileID: 1508834621532008}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0c6176154186120478250e222000055f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9f07d2a9cce30874387331a6dcc7aceb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
