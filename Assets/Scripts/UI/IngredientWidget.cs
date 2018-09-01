@@ -22,14 +22,12 @@ public class IngredientWidget : MonoBehaviour {
             return;
         }
 
-        Debug.Log("Spawning new ingredient");
         if (_Ingredient != null)
         {
             GameObject.Destroy(_Ingredient.gameObject);
         }
         _Label.text = ingredient.name;
         _Ingredient = GameObject.Instantiate(ingredient, _Holder);
-        _Ingredient.name = "WAT";
         _Ingredient.transform.localPosition = Vector3.zero;
         _Ingredient.gameObject.layer = 5;
     }
