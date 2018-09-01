@@ -96,9 +96,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880922000428118}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 15.5020485, y: 15.5020485, z: 15.5020485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4289534146959090}
   m_RootOrder: 0
@@ -109,14 +109,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1814963055937878}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4205371561212244}
   m_Father: {fileID: 4763823791747944}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!4 &4763823791747944
 Transform:
   m_ObjectHideFlags: 1
@@ -146,7 +146,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 9936ed123b30d0945a760473ebdfcd5e, type: 3}
+  - {fileID: 2100000, guid: 7592d6b9a29df33488d9e1ebe6b2cc4d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +172,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880922000428118}
-  m_Mesh: {fileID: 4300000, guid: 9936ed123b30d0945a760473ebdfcd5e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 7592d6b9a29df33488d9e1ebe6b2cc4d, type: 3}
 --- !u!54 &54595406193762418
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -201,7 +201,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 9936ed123b30d0945a760473ebdfcd5e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 7592d6b9a29df33488d9e1ebe6b2cc4d, type: 3}
 --- !u!114 &114774829292780932
 MonoBehaviour:
   m_ObjectHideFlags: 1
