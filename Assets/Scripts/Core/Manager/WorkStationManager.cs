@@ -9,6 +9,8 @@ public class WorkStationManager : BaseManager<WorkStationManager> {
     private WorkStation[] _workStations;
     private WorkStation _selectedStation = null;
 
+    public static LayerMask WorkstationLayermask { get { return Instance._workstationLayer; } }
+
     #region LIFECYCLE
     public override void OnStartManager() {
         _workStations = FindObjectsOfType(typeof(WorkStation)) as WorkStation[];
@@ -18,6 +20,7 @@ public class WorkStationManager : BaseManager<WorkStationManager> {
     }
 
     public override void OnRegisterCallbacks() {
+
     }
 
     public override void OnUnregisterCallbacks() {
@@ -25,6 +28,10 @@ public class WorkStationManager : BaseManager<WorkStationManager> {
     }
 
     public override void OnUpdateManager(float deltaTime) {
+
+        foreach(WorkStation station in _workStations) {
+            station.UpdateStation(deltaTime);
+        }
 
         if (InventoryManager.IsGrabbingIngredient()) {
             UpdateSelection();

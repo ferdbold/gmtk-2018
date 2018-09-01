@@ -38,6 +38,10 @@ public class WorkStation : MonoBehaviour {
         _animator.ResetTrigger(_animatorUsedHash);
     }
 
+    public virtual void UpdateStation(float deltaTime) {
+        
+    }
+
     public virtual void SelectStation() {
         _animator.SetBool(_animatorSelectedHash, true);
         if (OnStationSelected != null) OnStationSelected(this);
