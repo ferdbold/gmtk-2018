@@ -54,3 +54,7 @@ MonoBehaviour:
   _Score: 0
   _RecipeTickInterval: 15
   _RecipeTickRemaining: 0
+  _CurrentRecipe:
+    _Name: 
+    _Ingredients: []
+  _RecipeCollection: {fileID: 11400000, guid: 5d7eddc6bc4f1b04bb912d52caad96ea, type: 2}
