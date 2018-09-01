@@ -64,16 +64,28 @@ public class ScreenShakeManager : BaseManager<ScreenShakeManager>
 
     public override void OnRegisterCallbacks() {
         ShapeStation.OnShapeStationUsed += OnShapeStationUsed;
+        CleanStation.OnCleanStationUsed += OnCleanStationUsed;
+        ColorStation.OnColorStationUsed += OnColorStationUsed;
+        
     }
 
     public override void OnUnregisterCallbacks() {
         ShapeStation.OnShapeStationUsed -= OnShapeStationUsed;
+        CleanStation.OnCleanStationUsed -= OnCleanStationUsed;
+        ColorStation.OnColorStationUsed += OnColorStationUsed;
+
     }
 
     #region CALLBACKS
 
     private void OnShapeStationUsed() {
         AddShake(eScreenShakeIntensity.eLow, eScreenShakeDuration.eSmall, false);
+    }
+    private void OnCleanStationUsed() {
+        AddShake(eScreenShakeIntensity.eVeryLow, eScreenShakeDuration.eSmall, true);
+    }
+    private void OnColorStationUsed() {
+        AddShake(eScreenShakeIntensity.eVeryLow, eScreenShakeDuration.eSmall, true);
     }
 
     #endregion

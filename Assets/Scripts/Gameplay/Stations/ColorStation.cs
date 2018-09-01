@@ -21,13 +21,18 @@ public class ColorStation : WorkStation {
     [SerializeField] private SliderData _sliderGreen;
     [SerializeField] private SliderData _sliderBlue;
 
+    [SerializeField] private ParticleSystem _dipParticles;
+
 
     private bool _stationLocked = false;
     private bool _firstUpdate = true;
     private int _animationBlendParam;
     private Vector3 _animationTranslation = new Vector3(0,0.225f,0);
     private SliderData _grabbedSlider = null;
+
     private Color _dipColor;
+    private Coroutine _dipCoroutine = null;
+    private bool _inDipCooldown = false;
 
     public override void Setup() {
         base.Setup();
@@ -95,14 +100,24 @@ public class ColorStation : WorkStation {
     public override void UseStation(Ingredient ingredient) {
         base.UseStation(ingredient);
 
-        StartCoroutine(ChangeColorTimer(ingredient));
+        if (_dipCoroutine != null) StopCoroutine(_dipCoroutine);
+        _dipCoroutine = StartCoroutine(ChangeColorTimer(ingredient));
     }
 
     private IEnumerator ChangeColorTimer(Ingredient ingredient) {
         yield return new WaitForSeconds(0.15f);
 
+        if(!_inDipCooldown) {
+            _dipParticles.startColor = _dipColor;
+            _dipParticles.Emit(15);
+        }
+        _inDipCooldown = true;
+
         ingredient.ChangeColor(_dipColor);
         if (OnColorStationUsed != null) OnColorStationUsed();
+
+        yield return new WaitForSeconds(0.3f);
+        _inDipCooldown = false;
     }
 
     private void SetBlend(SliderData slider, float blend) {

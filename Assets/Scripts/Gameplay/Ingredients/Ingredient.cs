@@ -195,16 +195,12 @@ public class Ingredient : MonoBehaviour {
         //TODO VISUAL
         _meshRenderer.material.SetFloat("_Metallic", 1f-Rugosity);
         _meshRenderer.material.SetFloat("_Glossiness", 1f-Rugosity);
-
-        Debug.Log("Rugosity : " + (1f - Rugosity));
     }
     public void ResetGloss() {
         _currentRugosityChange = 0f;
 
         _meshRenderer.material.SetFloat("_Metallic", 1f - Rugosity);
         _meshRenderer.material.SetFloat("_Glossiness", 1f - Rugosity);
-
-        Debug.Log("Rugosity : " + (1f - Rugosity));
     }
 
     #endregion
