@@ -45,7 +45,7 @@ public class Ingredient : MonoBehaviour {
     private float _lenghtChangeMax = 0.25f;
 
     private float _currentRugosityChange = 0f;
-    private float _rugosityChangeMax = 0.25f;
+    private float _rugosityChangeMax = 0.4f;
 
     private float _currentTemperatureChange = 0f;
     private float _temperatureChangeMax = 0.5f;
@@ -64,7 +64,7 @@ public class Ingredient : MonoBehaviour {
     {
         get { return Mathf.Clamp(_length + _currentLenghtChange, 0f, 1f); }
     }
-    public float Solidity
+    public float Rugosity
     {
         get { return Mathf.Clamp(_rugosity + _currentRugosityChange, 0f, 1f); }
     }
@@ -102,6 +102,9 @@ public class Ingredient : MonoBehaviour {
         _meshRenderer = GetComponentInChildren<MeshRenderer>();
 
         ResetColor();
+        ResetHeat();
+        ResetGloss();
+        ResetLenght();
     }
 
     public void Update()
@@ -172,7 +175,6 @@ public class Ingredient : MonoBehaviour {
         _colorChanged = false;
 
         _meshRenderer.material.color = _color;
-
     }
 
     public void AddHeat(float change) {
@@ -181,12 +183,28 @@ public class Ingredient : MonoBehaviour {
 
         //TODO VISUAL
     }
+    public void ResetHeat() {
+        _currentTemperatureChange = 0f;
+
+    }
 
     public void AddGloss(float change) {
         _currentRugosityChange -= change;
-        _currentRugosityChange = Mathf.Clamp(_currentTemperatureChange, -_temperatureChangeMax, _temperatureChangeMax);
+        _currentRugosityChange = Mathf.Clamp(_currentRugosityChange, -_rugosityChangeMax, _rugosityChangeMax);
 
         //TODO VISUAL
+        _meshRenderer.material.SetFloat("_Metallic", 1f-Rugosity);
+        _meshRenderer.material.SetFloat("_Glossiness", 1f-Rugosity);
+
+        Debug.Log("Rugosity : " + (1f - Rugosity));
+    }
+    public void ResetGloss() {
+        _currentRugosityChange = 0f;
+
+        _meshRenderer.material.SetFloat("_Metallic", 1f - Rugosity);
+        _meshRenderer.material.SetFloat("_Glossiness", 1f - Rugosity);
+
+        Debug.Log("Rugosity : " + (1f - Rugosity));
     }
 
     #endregion

@@ -43,7 +43,7 @@ public class GlossStation : WorkStation {
 
         while (_stationInUse) {
             yield return new WaitForSeconds(0.05f);
-            ingredient.AddHeat(_glossChangePerSecond * 0.05f);
+            ingredient.AddGloss(_glossChangePerSecond * 0.05f);
         }
 
         _animator.SetBool(_animatorUsingHash, false);

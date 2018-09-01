@@ -244,8 +244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: {r: 0.9150943, g: 0.74480104, b: 0.10791205, a: 0}
   _colorWeight: 0.5
-  _solidity: 0.6
-  _solidityWeight: 0.5
+  _rugosity: 1
+  _rugosityWeight: 0.5
   _length: 1
   _lengthWeight: 0.8
   _temperature: 0.5
