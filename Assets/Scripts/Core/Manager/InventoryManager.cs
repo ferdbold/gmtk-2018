@@ -37,6 +37,8 @@ public class InventoryManager : BaseManager<InventoryManager> {
 
     private void OnStationSelected(WorkStation station) {
         if (_grabbedTransform != null) {
+            KillTweens();
+            _grabbedTransform.transform.parent = null;
             _objectMoveTween = _grabbedTransform.DOMove(station.Anchor.position, _objectAnimationTime).SetEase(_objectAnimationCurve);
             _objectRotateTween = _grabbedTransform.DORotate(station.Anchor.rotation.eulerAngles, _objectAnimationTime).SetEase(_objectAnimationCurve);
         }
@@ -44,8 +46,10 @@ public class InventoryManager : BaseManager<InventoryManager> {
 
     private void OnStationUnselected(WorkStation station) {
         if(_grabbedTransform != null) {
-            _objectMoveTween = _grabbedTransform.DOMove(PlayerManager.InventoryTransform.position, _objectAnimationTime).SetEase(_objectAnimationCurve);
-            _objectRotateTween = _grabbedTransform.DORotate(PlayerManager.InventoryTransform.rotation.eulerAngles, _objectAnimationTime).SetEase(_objectAnimationCurve);
+            KillTweens();
+            _grabbedTransform.transform.parent = PlayerManager.InventoryTransform;
+            _objectMoveTween = _grabbedTransform.DOLocalMove(Vector3.zero, _objectAnimationTime).SetEase(_objectAnimationCurve);
+            _objectRotateTween = _grabbedTransform.DOLocalRotate(Quaternion.identity.eulerAngles, _objectAnimationTime).SetEase(_objectAnimationCurve);
         }
     }   
 

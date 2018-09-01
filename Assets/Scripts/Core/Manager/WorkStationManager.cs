@@ -9,11 +9,7 @@ public class WorkStationManager : BaseManager<WorkStationManager> {
 
     #region LIFECYCLE
     public override void OnStartManager() {
-        Object[] stationGOs = GameObject.FindObjectsOfType(typeof(WorkStation));
-        _workStations = new WorkStation[stationGOs.Length];
-        for (int i =0; i < stationGOs.Length; ++i){
-            _workStations[i] = ((GameObject) stationGOs[i]).GetComponent<WorkStation>();
-        }
+        _workStations = FindObjectsOfType(typeof(WorkStation)) as WorkStation[];
     }
 
     public override void OnRegisterCallbacks() {
@@ -37,22 +33,30 @@ public class WorkStationManager : BaseManager<WorkStationManager> {
 
         for(int i = 0; i < _workStations.Length; ++i) {
             WorkStation station = _workStations[i];
-            Vector3 fromTo = station.Anchor.position - PlayerManager.Position;
+            Vector3 fromTo = Vector3.ProjectOnPlane(station.Anchor.position - PlayerManager.Position, Vector3.up);
             float angle = Vector3.Angle(fromTo, playerForward);
 
             if (station.SelectionAngle > angle && closestAngle > angle) {
                 closestAngle = angle;
                 closestStation = station;
             }
-
-            if(closestStation != null && closestStation != _selectedStation) {
-                if (_selectedStation != null)
-                    _selectedStation.UnselectStation();
-                _selectedStation = closestStation;
-                _selectedStation.SelectStation();
-            }
-
         }
+
+        if (closestStation != null && closestStation != _selectedStation) {
+            UnselectStation();
+            _selectedStation = closestStation;
+            _selectedStation.SelectStation();
+        } else if (closestStation == null) {
+            UnselectStation();
+            _selectedStation = null;
+        }
+    }
+
+    private void UnselectStation() {
+        if (_selectedStation != null) {
+            _selectedStation.UnselectStation();
+        }
+
     }
 
 }
