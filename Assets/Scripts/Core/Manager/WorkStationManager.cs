@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class WorkStationManager : BaseManager<WorkStationManager> {
 
+    [SerializeField] private LayerMask _workstationLayer;
+
     private WorkStation[] _workStations;
     private WorkStation _selectedStation = null;
 
     #region LIFECYCLE
     public override void OnStartManager() {
         _workStations = FindObjectsOfType(typeof(WorkStation)) as WorkStation[];
+        foreach (WorkStation station in _workStations) {
+            station.Setup();
+        }
     }
 
     public override void OnRegisterCallbacks() {
@@ -21,11 +26,18 @@ public class WorkStationManager : BaseManager<WorkStationManager> {
     }
 
     public override void OnUpdateManager(float deltaTime) {
-        UpdateSelection();
+
+        if (InventoryManager.IsGrabbingIngredient()) {
+            UpdateSelection();
+            HandleStationUse();
+        } else {
+            UnselectStation();
+        }
     }
 
     #endregion
 
+    #region GAMEPLAY 
     private void UpdateSelection() {
         float closestAngle = 360f;
         WorkStation closestStation = null;
@@ -56,7 +68,19 @@ public class WorkStationManager : BaseManager<WorkStationManager> {
         if (_selectedStation != null) {
             _selectedStation.UnselectStation();
         }
-
     }
 
+    private void HandleStationUse() {
+        if (Input.GetMouseButtonDown(0)) {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100.0f, _workstationLayer)) {
+                if(hit.collider.gameObject.gameObject == _selectedStation.gameObject) {
+                    _selectedStation.UseStation();
+                }
+            }
+        }
+    }
+
+    #endregion
 }

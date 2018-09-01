@@ -62,7 +62,7 @@ public class Ingredient : MonoBehaviour {
     }
 
     public void Awake() {
-        gameObject.layer = 9;
+        gameObject.layer = 9; //Ingredient layer
     }
 
     public void Update()

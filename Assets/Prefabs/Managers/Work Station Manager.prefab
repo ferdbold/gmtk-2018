@@ -51,3 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f8937ee6190694d8fc0d8671b4a9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _workstationLayer:
+    serializedVersion: 2
+    m_Bits: 1024

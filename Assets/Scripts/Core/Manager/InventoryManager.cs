@@ -82,7 +82,13 @@ public class InventoryManager : BaseManager<InventoryManager> {
         AttachObjectToInventory();
     }
 
+    #endregion
 
+    #region Static API
+
+    public static bool IsGrabbingIngredient() {
+        return Instance._grabbedIngredient != null;
+    }
 
     #endregion
 }
