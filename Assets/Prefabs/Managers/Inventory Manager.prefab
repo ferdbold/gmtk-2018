@@ -140,15 +140,15 @@ MonoBehaviour:
   _objectLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  _objectAnimationTime: 0.6
+  _objectAnimationTime: 0.45
   _objectAnimationCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
