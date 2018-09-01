@@ -39,6 +39,7 @@ public class Ingredient : MonoBehaviour {
     [HideInInspector] public bool _OnConveyorBelt = false;
 
     private Transform _visuals;
+    private MeshRenderer _meshRenderer;
 
     private float _currentLenghtChange = 0f;
     private float _lenghtChangeMax = 0.25f;
@@ -57,20 +58,20 @@ public class Ingredient : MonoBehaviour {
     #region Getters 
 
     public float Temperature {
-        get { return _temperature + _currentTemperatureChange; }
+        get { return Mathf.Clamp(_temperature + _currentTemperatureChange, 0f, 1f); }
     }
     public float Lenght
     {
-        get { return _length + _currentLenghtChange; }
+        get { return Mathf.Clamp(_length + _currentLenghtChange, 0f, 1f); }
     }
     public float Solidity
     {
-        get { return _solidity + _currentSolidityChange; }
+        get { return Mathf.Clamp(_solidity + _currentSolidityChange, 0f, 1f); }
     }
     public Color Color
     {
         get {
-            return _colorChanged? _currentColorOverride : _color;
+            return _colorChanged ? _currentColorOverride : _color;
         }
     }
 
@@ -94,8 +95,13 @@ public class Ingredient : MonoBehaviour {
     }
 
     public void Awake() {
-        gameObject.layer = 9; //Ingredient layer
+        foreach(Transform t in gameObject.GetComponentsInChildren<Transform>())
+            t.gameObject.layer = 9; //Ingredient layer
+
         _visuals = transform.Find("Visuals");
+        _meshRenderer = GetComponentInChildren<MeshRenderer>();
+
+        ResetColor();
     }
 
     public void Update()
@@ -146,11 +152,25 @@ public class Ingredient : MonoBehaviour {
         _currentLenghtChange += change;
         _currentLenghtChange = Mathf.Clamp(_currentLenghtChange, -_lenghtChangeMax, _lenghtChangeMax);
 
-        _visuals.localScale = new Vector3(1f - _currentLenghtChange, 1f + _currentLenghtChange, 1f - _currentLenghtChange);
+        _visuals.localScale = new Vector3(  1f + Mathf.Lerp(0, Mathf.Sign(_currentLenghtChange) * 0.40f, Mathf.Abs(_currentLenghtChange) / _lenghtChangeMax),
+                                            1f - Mathf.Lerp(0, Mathf.Sign(_currentLenghtChange) * 0.25f, Mathf.Abs(_currentLenghtChange) / _lenghtChangeMax),
+                                            1f - Mathf.Lerp(0, Mathf.Sign(_currentLenghtChange) * 0.25f, Mathf.Abs(_currentLenghtChange) / _lenghtChangeMax));
+    }
+    public void ResetLenght() {
+        _currentLenghtChange = 0f;
+        _visuals.localScale = new Vector3(1f,1f,1f);
     }
 
     public void ChangeColor(Color color) {
         _colorChanged = true;
         _currentColorOverride = color;
+
+        _meshRenderer.material.color = _currentColorOverride;
+    }
+    public void ResetColor() {
+        _colorChanged = false;
+
+        _meshRenderer.material.color = _color;
+
     }
 }

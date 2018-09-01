@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class CleanStation : WorkStation {
@@ -9,6 +9,12 @@ public class CleanStation : WorkStation {
     public override void UseStation(Ingredient ingredient) {
         base.UseStation(ingredient);
 
+        StartCoroutine(ChangeColorTimer(ingredient));
+    }
+
+    private IEnumerator ChangeColorTimer(Ingredient ingredient) {
+        yield return new WaitForSeconds(0.15f);
+        ingredient.ResetColor();
         if (OnCleanStationUsed != null) OnCleanStationUsed();
     }
 }

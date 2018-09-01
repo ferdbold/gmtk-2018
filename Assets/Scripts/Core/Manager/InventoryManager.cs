@@ -45,7 +45,7 @@ public class InventoryManager : BaseManager<InventoryManager> {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100.0f, _objectLayerMask)) {
-                Ingredient ing = hit.collider.gameObject.GetComponent<Ingredient>();
+                Ingredient ing = hit.collider.gameObject.GetComponentInParent<Ingredient>();
                 _grabbedIngredient = ing;
                 AttachObjectToInventory();
             }

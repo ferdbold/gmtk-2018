@@ -96,6 +96,13 @@ public class ColorStation : WorkStation {
     public override void UseStation(Ingredient ingredient) {
         base.UseStation(ingredient);
 
+        StartCoroutine(ChangeColorTimer(ingredient));
+    }
+
+    private IEnumerator ChangeColorTimer(Ingredient ingredient) {
+        yield return new WaitForSeconds(0.15f);
+
+        ingredient.ChangeColor(_dipColor);
         if (OnColorStationUsed != null) OnColorStationUsed();
     }
 
