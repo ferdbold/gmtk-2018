@@ -60,6 +60,10 @@ public class Ingredient : MonoBehaviour {
         public float _globalScore;
     }
 
+    public void Awake() {
+        gameObject.layer = 9;
+    }
+
     public void Update()
     {
         transform.Translate(transform.forward * _ConveyorSpeed * Time.deltaTime);

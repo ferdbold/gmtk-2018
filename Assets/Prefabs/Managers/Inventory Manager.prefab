@@ -137,8 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d7a365a96952e4886d63524db02df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grabbedTransform: {fileID: 4324019252110332}
-  _objectAnimationTime: 2
+  _objectLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  _objectAnimationTime: 0.6
   _objectAnimationCurve:
     serializedVersion: 2
     m_Curve:

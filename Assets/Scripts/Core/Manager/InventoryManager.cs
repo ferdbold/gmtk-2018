@@ -5,12 +5,15 @@ using DG.Tweening;
 
 public class InventoryManager : BaseManager<InventoryManager> {
 
-    public Transform _grabbedTransform;
-    private Tweener _objectMoveTween = null;
-    private Tweener _objectRotateTween = null;
 
+
+    [SerializeField] private LayerMask _objectLayerMask;
     [SerializeField] private float _objectAnimationTime = 2f;
     [SerializeField] private AnimationCurve _objectAnimationCurve;
+
+    private Ingredient _grabbedIngredient = null;
+    private Tweener _objectMoveTween = null;
+    private Tweener _objectRotateTween = null;
 
     #region LIFECYCLE
     public override void OnStartManager() {
@@ -28,7 +31,37 @@ public class InventoryManager : BaseManager<InventoryManager> {
     }
 
     public override void OnUpdateManager(float deltaTime) {
+        HandleMouseInput();
+    }
 
+    #endregion
+
+    #region GAMEPLAY
+    
+    private void HandleMouseInput() {
+        if (_grabbedIngredient == null && Input.GetMouseButtonDown(0)) {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100.0f, _objectLayerMask)) {
+                Ingredient ing = hit.collider.gameObject.GetComponent<Ingredient>();
+                _grabbedIngredient = ing;
+                AttachObjectToInventory();
+            }
+        }
+    }
+
+    private void KillTweens() {
+        if (_objectMoveTween != null) _objectMoveTween.Kill();
+        if (_objectRotateTween != null) _objectRotateTween.Kill();
+    }
+
+    private void AttachObjectToInventory() {
+        if (_grabbedIngredient != null) {
+            KillTweens();
+            _grabbedIngredient.transform.transform.parent = PlayerManager.InventoryTransform;
+            _objectMoveTween = _grabbedIngredient.transform.DOLocalMove(Vector3.zero, _objectAnimationTime).SetEase(_objectAnimationCurve);
+            _objectRotateTween = _grabbedIngredient.transform.DOLocalRotate(Quaternion.identity.eulerAngles, _objectAnimationTime).SetEase(_objectAnimationCurve);
+        }
     }
 
     #endregion
@@ -36,27 +69,19 @@ public class InventoryManager : BaseManager<InventoryManager> {
     #region CALLBACKS
 
     private void OnStationSelected(WorkStation station) {
-        if (_grabbedTransform != null) {
+        if (_grabbedIngredient != null) {
             KillTweens();
-            _grabbedTransform.transform.parent = null;
-            _objectMoveTween = _grabbedTransform.DOMove(station.Anchor.position, _objectAnimationTime).SetEase(_objectAnimationCurve);
-            _objectRotateTween = _grabbedTransform.DORotate(station.Anchor.rotation.eulerAngles, _objectAnimationTime).SetEase(_objectAnimationCurve);
+            _grabbedIngredient.transform.transform.parent = null;
+            _objectMoveTween = _grabbedIngredient.transform.DOMove(station.Anchor.position, _objectAnimationTime).SetEase(_objectAnimationCurve);
+            _objectRotateTween = _grabbedIngredient.transform.DORotate(station.Anchor.rotation.eulerAngles, _objectAnimationTime).SetEase(_objectAnimationCurve);
         }
     }
 
     private void OnStationUnselected(WorkStation station) {
-        if(_grabbedTransform != null) {
-            KillTweens();
-            _grabbedTransform.transform.parent = PlayerManager.InventoryTransform;
-            _objectMoveTween = _grabbedTransform.DOLocalMove(Vector3.zero, _objectAnimationTime).SetEase(_objectAnimationCurve);
-            _objectRotateTween = _grabbedTransform.DOLocalRotate(Quaternion.identity.eulerAngles, _objectAnimationTime).SetEase(_objectAnimationCurve);
-        }
-    }   
-
-    private void KillTweens() {
-        if (_objectMoveTween != null) _objectMoveTween.Kill();
-        if (_objectRotateTween != null) _objectRotateTween.Kill();
+        AttachObjectToInventory();
     }
+
+
 
     #endregion
 }
