@@ -48,7 +48,7 @@ public class Ingredient : MonoBehaviour {
     private float _solidityChangeMax = 0.25f;
 
     private float _currentTemperatureChange = 0f;
-    private float _temperatureChangeMax = 0.25f;
+    private float _temperatureChangeMax = 0.5f;
 
     private Color _currentColorOverride = Color.white;
     private bool _colorChanged = false;
@@ -148,6 +148,7 @@ public class Ingredient : MonoBehaviour {
         return 1 - Mathf.Abs(myStat - otherStat);
     }
 
+    #region GAMEPLAY
     public void ChangeLenght(float change) {
         _currentLenghtChange += change;
         _currentLenghtChange = Mathf.Clamp(_currentLenghtChange, -_lenghtChangeMax, _lenghtChangeMax);
@@ -173,4 +174,13 @@ public class Ingredient : MonoBehaviour {
         _meshRenderer.material.color = _color;
 
     }
+
+    public void AddHeat(float change) {
+        _currentTemperatureChange += change;
+        _currentTemperatureChange = Mathf.Clamp(_currentTemperatureChange, -_temperatureChangeMax, _temperatureChangeMax);
+
+        //TODO VISUAL
+    }
+
+    #endregion
 }
