@@ -34,8 +34,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4972624343098352}
-  - component: {fileID: 114595988581460846}
   - component: {fileID: 95235293527542626}
+  - component: {fileID: 114233466732103054}
   m_Layer: 0
   m_Name: Clean Station
   m_TagString: Untagged
@@ -263,7 +263,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114595988581460846
+--- !u!114 &114233466732103054
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1136184702576230}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66a35cb5c19978941b07646cccdbae51, type: 3}
+  m_Script: {fileID: 11500000, guid: 6da1664e3c31b2a4d83ce515fe377ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _anchor: {fileID: 4576366614732884}
