@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : BaseManager<PlayerManager> {
 
     [SerializeField] private Transform _player;
+    [SerializeField] private Transform _inventorySocket;
 
     [Header("Movement")]
     [SerializeField] private AnimationCurve _movementCurve;
@@ -37,7 +38,6 @@ public class PlayerManager : BaseManager<PlayerManager> {
     }
     #endregion
 
-
     #region Gameplay
 
     private void HandleHorizontalMovement() {
@@ -62,6 +62,32 @@ public class PlayerManager : BaseManager<PlayerManager> {
     private void OnPlayerMove()
     {       
         _player.Rotate(Vector3.up, _currentVelocity);
+    }
+
+    #endregion
+
+    #region Accessors
+
+    public static Vector3 Forward 
+    {
+        get 
+        { 
+            return Instance._player.forward;
+        }
+    }
+    public static Vector3 Position
+    {
+        get
+        {
+            return Instance._player.position;
+        }
+    }
+    public static Transform InventoryTransform 
+    {
+        get
+        {
+            return Instance._inventorySocket;
+        }
     }
 
     #endregion

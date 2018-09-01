@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1369529651273784}
+  m_RootGameObject: {fileID: 1413203842985318}
   m_IsPrefabAsset: 1
---- !u!1 &1369529651273784
+--- !u!1 &1413203842985318
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4877180247463952}
-  - component: {fileID: 114462597808851054}
+  - component: {fileID: 4383155886811670}
+  - component: {fileID: 114865898788409940}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Inventory Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4877180247463952
+--- !u!4 &4383155886811670
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369529651273784}
+  m_GameObject: {fileID: 1413203842985318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,20 +40,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114462597808851054
+--- !u!114 &114865898788409940
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369529651273784}
+  m_GameObject: {fileID: 1413203842985318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15df1cacf4a68e749a9bb68eac95801f, type: 3}
+  m_Script: {fileID: 11500000, guid: 36d7a365a96952e4886d63524db02df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _managersPrefab:
-  - Prefab: {fileID: 1877276613877622, guid: 9171d6ec83dc4024a96011ad36ac7629, type: 2}
-  - Prefab: {fileID: 1344957227765818, guid: 17e4fb26b28b8e4488984c59aebc5b30, type: 2}
-  - Prefab: {fileID: 1528613423010234, guid: bb2cb26ce1109fa4393451350d4fa8ab, type: 2}
-  - Prefab: {fileID: 1413203842985318, guid: d3b933f8f64bc644c99c006e545caab6, type: 2}
-  - Prefab: {fileID: 1889543963419152, guid: d4f153c1d84fda843bb9ed84675cfec9, type: 2}
+  _objectAnimationTime: 2
+  _objectAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
