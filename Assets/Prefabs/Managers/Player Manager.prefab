@@ -183,3 +183,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _speed: 0.25
+  _gravity: 0.08
+  maxSpeed: 1.75
