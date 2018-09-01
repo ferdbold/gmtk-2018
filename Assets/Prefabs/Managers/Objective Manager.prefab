@@ -9,52 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1369529651273784}
+  m_RootGameObject: {fileID: 1562922129606548}
   m_IsPrefabAsset: 1
---- !u!1 &1369529651273784
+--- !u!1 &1562922129606548
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4877180247463952}
-  - component: {fileID: 114462597808851054}
+  - component: {fileID: 4487505921014652}
+  - component: {fileID: 114808803578222686}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Objective Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4877180247463952
+--- !u!4 &4487505921014652
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369529651273784}
+  m_GameObject: {fileID: 1562922129606548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.263166, y: 19.762468, z: 0.11355972}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114462597808851054
+--- !u!114 &114808803578222686
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369529651273784}
+  m_GameObject: {fileID: 1562922129606548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15df1cacf4a68e749a9bb68eac95801f, type: 3}
+  m_Script: {fileID: 11500000, guid: d93e1fffb5851004ba0eb7c870ac4567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _managersPrefab:
-  - Prefab: {fileID: 1877276613877622, guid: 9171d6ec83dc4024a96011ad36ac7629, type: 2}
-  - Prefab: {fileID: 1344957227765818, guid: 17e4fb26b28b8e4488984c59aebc5b30, type: 2}
-  - Prefab: {fileID: 1528613423010234, guid: bb2cb26ce1109fa4393451350d4fa8ab, type: 2}
-  - Prefab: {fileID: 1413203842985318, guid: d3b933f8f64bc644c99c006e545caab6, type: 2}
-  - Prefab: {fileID: 1889543963419152, guid: d4f153c1d84fda843bb9ed84675cfec9, type: 2}
-  - Prefab: {fileID: 1562922129606548, guid: f1e49734273bc7941b9e5132251f78d9, type: 2}
+  _Score: 0
+  _RecipeTickInterval: 15
+  _RecipeTickRemaining: 0
