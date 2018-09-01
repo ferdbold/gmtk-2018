@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class InventoryManager : BaseManager<InventoryManager> {
 
-    private Transform _grabbedTransform;
+    public Transform _grabbedTransform;
     private Tweener _objectMoveTween = null;
     private Tweener _objectRotateTween = null;
 
