@@ -2,13 +2,6 @@
 
 public class IngredientKiller : MonoBehaviour {
 
-    private BoxCollider _BoxCollider;
-
-    void Start()
-    {
-        _BoxCollider = GetComponent<BoxCollider>();
-    }
-
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collided");

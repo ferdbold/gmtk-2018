@@ -149,7 +149,7 @@ MonoBehaviour:
   _lengthWeight: 0.5
   _temperature: 0.4
   _temperatureWeight: 0.25
-  _ConveyorSpeed: 1
+  _ConveyorSpeed: 0.5
 --- !u!135 &135782159660170594
 SphereCollider:
   m_ObjectHideFlags: 1
