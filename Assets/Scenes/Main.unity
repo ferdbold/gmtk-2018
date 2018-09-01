@@ -265,6 +265,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 87522066}
   m_Mesh: {fileID: 4300058, guid: a8904e3f038e67446bc30b7327917b8d, type: 3}
+--- !u!1 &97216987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1508834621532008, guid: fc525f5f849821f41a334e939ed1c6ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1700339695}
+--- !u!114 &97216988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 97216987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34acdd6122e8de94fa66f8d4c86f198b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anchor: {fileID: 1614884781}
+  _selectionAngle: 35
+  _stationType: 1
+  _animator: {fileID: 97216989}
+--- !u!95 &97216989 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95971965016387834, guid: fc525f5f849821f41a334e939ed1c6ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1700339695}
 --- !u!1 &107436721
 GameObject:
   m_ObjectHideFlags: 0
@@ -3972,6 +3997,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1583090350}
   m_Mesh: {fileID: 4300040, guid: a8904e3f038e67446bc30b7327917b8d, type: 3}
+--- !u!4 &1614884781 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4984468717594936, guid: fc525f5f849821f41a334e939ed1c6ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1700339695}
 --- !u!1 &1634468192
 GameObject:
   m_ObjectHideFlags: 0
@@ -4253,7 +4283,8 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 2.131
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114116427725352786, guid: fc525f5f849821f41a334e939ed1c6ca, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: fc525f5f849821f41a334e939ed1c6ca, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &1700339696 stripped

@@ -62,7 +62,19 @@ public class ScreenShakeManager : BaseManager<ScreenShakeManager>
         GameManager.RemoveFreeze(GameFreezeMask.FreezeContext.Pause);
     }
 
+    public override void OnRegisterCallbacks() {
+        ShapeStation.OnShapeStationUsed += OnShapeStationUsed;
+    }
+
+    public override void OnUnregisterCallbacks() {
+        ShapeStation.OnShapeStationUsed -= OnShapeStationUsed;
+    }
+
     #region CALLBACKS
+
+    private void OnShapeStationUsed() {
+        AddShake(eScreenShakeIntensity.eLow, eScreenShakeDuration.eSmall, false);
+    }
 
     #endregion
 

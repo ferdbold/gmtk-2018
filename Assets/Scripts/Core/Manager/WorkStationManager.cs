@@ -18,7 +18,6 @@ public class WorkStationManager : BaseManager<WorkStationManager> {
     }
 
     public override void OnRegisterCallbacks() {
-
     }
 
     public override void OnUnregisterCallbacks() {

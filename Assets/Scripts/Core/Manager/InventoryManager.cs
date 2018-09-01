@@ -17,17 +17,21 @@ public class InventoryManager : BaseManager<InventoryManager> {
 
     #region LIFECYCLE
     public override void OnStartManager() {
-        
+
     }
 
     public override void OnRegisterCallbacks() {
         WorkStation.OnStationSelected += OnStationSelected;
         WorkStation.OnStationUnselected += OnStationUnselected;
+        ShapeStation.OnShapeStationUsed += OnShapeStationUsed;
+
     }
 
     public override void OnUnregisterCallbacks() {
         WorkStation.OnStationSelected -= OnStationSelected;
         WorkStation.OnStationUnselected -= OnStationUnselected;
+        ShapeStation.OnShapeStationUsed -= OnShapeStationUsed;
+
     }
 
     public override void OnUpdateManager(float deltaTime) {
@@ -37,7 +41,7 @@ public class InventoryManager : BaseManager<InventoryManager> {
     #endregion
 
     #region GAMEPLAY
-    
+
     private void HandleMouseInput() {
         if (_grabbedIngredient == null && Input.GetMouseButtonDown(0)) {
             RaycastHit hit;
@@ -80,6 +84,13 @@ public class InventoryManager : BaseManager<InventoryManager> {
 
     private void OnStationUnselected(WorkStation station) {
         AttachObjectToInventory();
+    }
+
+    private void OnShapeStationUsed() {
+        if(_grabbedIngredient != null) {
+            _grabbedIngredient.transform.DOShakeRotation(0.1f, 20, 2, 90, false);
+            _grabbedIngredient.transform.DOShakePosition(0.1f, 0.05f, 2, 90, false);
+        }
     }
 
     #endregion
