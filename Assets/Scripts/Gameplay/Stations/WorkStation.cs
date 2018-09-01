@@ -10,6 +10,8 @@ public class WorkStation : MonoBehaviour {
         ShapeStation = 1,
         CleanStation = 2,
         PreparationStation = 3,
+        OvenStation = 4,
+        GlossStation = 5
     }
     
     public static event Action<WorkStation> OnStationSelected;
@@ -21,7 +23,7 @@ public class WorkStation : MonoBehaviour {
     [SerializeField] private StationType _stationType;
 
     [Header("Animation")]
-    [SerializeField] private Animator _animator;
+    [SerializeField] protected Animator _animator;
     private int _animatorSelectedHash;
     private int _animatorUsedHash;
 

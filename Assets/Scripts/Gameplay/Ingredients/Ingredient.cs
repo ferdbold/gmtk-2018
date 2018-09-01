@@ -14,10 +14,10 @@ public class Ingredient : MonoBehaviour {
     
     [Header("Solidity")]
     [Range(0, 1)]
-    [SerializeField] private float _solidity;
+    [SerializeField]  private float _rugosity;
 
     [Range(0, 1)]
-    public float _solidityWeight = 0.5f;
+    public float _rugosityWeight = 0.5f;
 
     [Header("Length")]
     [Range(0, 1)]
@@ -44,11 +44,11 @@ public class Ingredient : MonoBehaviour {
     private float _currentLenghtChange = 0f;
     private float _lenghtChangeMax = 0.25f;
 
-    private float _currentSolidityChange = 0f;
-    private float _solidityChangeMax = 0.25f;
+    private float _currentRugosityChange = 0f;
+    private float _rugosityChangeMax = 0.25f;
 
     private float _currentTemperatureChange = 0f;
-    private float _temperatureChangeMax = 0.25f;
+    private float _temperatureChangeMax = 0.5f;
 
     private Color _currentColorOverride = Color.white;
     private bool _colorChanged = false;
@@ -66,7 +66,7 @@ public class Ingredient : MonoBehaviour {
     }
     public float Solidity
     {
-        get { return Mathf.Clamp(_solidity + _currentSolidityChange, 0f, 1f); }
+        get { return Mathf.Clamp(_rugosity + _currentRugosityChange, 0f, 1f); }
     }
     public Color Color
     {
@@ -114,7 +114,7 @@ public class Ingredient : MonoBehaviour {
 
     public SComparisonScore Compare(Ingredient other)
     {
-        float totalWeight = _colorWeight + _solidityWeight + _lengthWeight + _temperatureWeight;
+        float totalWeight = _colorWeight + _rugosityWeight + _lengthWeight + _temperatureWeight;
 
         float h = 0f, s = 0f, v = 0f;
         Color.RGBToHSV(_color, out h, out s, out v);
@@ -125,8 +125,8 @@ public class Ingredient : MonoBehaviour {
         score._colorScore = GetScore(h, otherH);
         score._colorWeight = _colorWeight / totalWeight;
 
-        score._solidityScore = GetScore(_solidity, other._solidity);
-        score._solidityWeight = _solidityWeight / totalWeight;
+        score._solidityScore = GetScore(_rugosity, other._rugosity);
+        score._solidityWeight = _rugosityWeight / totalWeight;
 
         score._lengthScore = GetScore(_length, other._length);
         score._lengthWeight = _lengthWeight / totalWeight;
@@ -148,6 +148,7 @@ public class Ingredient : MonoBehaviour {
         return 1 - Mathf.Abs(myStat - otherStat);
     }
 
+    #region GAMEPLAY
     public void ChangeLenght(float change) {
         _currentLenghtChange += change;
         _currentLenghtChange = Mathf.Clamp(_currentLenghtChange, -_lenghtChangeMax, _lenghtChangeMax);
@@ -173,4 +174,20 @@ public class Ingredient : MonoBehaviour {
         _meshRenderer.material.color = _color;
 
     }
+
+    public void AddHeat(float change) {
+        _currentTemperatureChange += change;
+        _currentTemperatureChange = Mathf.Clamp(_currentTemperatureChange, -_temperatureChangeMax, _temperatureChangeMax);
+
+        //TODO VISUAL
+    }
+
+    public void AddGloss(float change) {
+        _currentRugosityChange -= change;
+        _currentRugosityChange = Mathf.Clamp(_currentTemperatureChange, -_temperatureChangeMax, _temperatureChangeMax);
+
+        //TODO VISUAL
+    }
+
+    #endregion
 }

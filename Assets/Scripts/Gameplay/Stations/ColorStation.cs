@@ -45,7 +45,6 @@ public class ColorStation : WorkStation {
         SetBlend(_sliderGreen, UnityEngine.Random.Range(0f, 1f));
         SetBlend(_sliderBlue, UnityEngine.Random.Range(0f, 1f));
 
-        Debug.Log("start and pos red: " + _sliderRed.start + "  " + _sliderRed.end);
     }
 
     public override void UpdateStation(float deltaTime) {
