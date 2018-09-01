@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectiveManager : BaseManager<ObjectiveManager> {
@@ -10,6 +11,12 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
     public float _RecipeTickInterval;
     public float _RecipeTickRemaining;
 
+    public class SRecipeScore
+    {
+        public List<Ingredient.SComparisonScore> _IngredientScores = new List<Ingredient.SComparisonScore>();
+        public float _GlobalScore;
+    }
+
     [SerializeField]
     public Recipes.SRecipe _CurrentRecipe;
 
@@ -18,6 +25,7 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
     #endregion // ATTRIBUTES
 
     public static event Action<Recipes.SRecipe> OnRecipeChanged;
+    public static event Action<SRecipeScore> OnRecipeShipped;
 
     public override void OnStartGame()
     {
@@ -50,11 +58,35 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
             }
 
             _CurrentRecipe = newRecipe;
-            OnRecipeChanged(_CurrentRecipe);
+            if (OnRecipeChanged != null) OnRecipeChanged(_CurrentRecipe);
         }
         else
         {
             Debug.LogWarning("No recipes in collection calisse");
         }
+    }
+
+    public void ShipRecipe()
+    {
+        Debug.Log("Shipping recipe");
+
+        SRecipeScore recipeScore = new SRecipeScore();
+
+        int ingredientCount = _CurrentRecipe._Ingredients.Count;
+        for (int i = 0; i < ingredientCount; ++i)
+        {
+            Ingredient.SComparisonScore ingredientScore = new Ingredient.SComparisonScore();
+            
+            if (PreparationStation._LaborOfLove.Count > i)
+            {
+                Ingredient laborIngredient = PreparationStation._LaborOfLove[i];
+                ingredientScore = _CurrentRecipe._Ingredients[i].Compare(laborIngredient);
+            }
+
+            recipeScore._IngredientScores.Add(ingredientScore);
+            recipeScore._GlobalScore += ingredientScore._globalScore / ingredientCount;
+        }
+
+        if (OnRecipeShipped != null) OnRecipeShipped(recipeScore);
     }
 }

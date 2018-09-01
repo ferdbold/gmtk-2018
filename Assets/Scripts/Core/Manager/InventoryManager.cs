@@ -6,8 +6,8 @@ using DG.Tweening;
 public class InventoryManager : BaseManager<InventoryManager> {
 
     [SerializeField] private LayerMask _objectLayerMask;
-    [SerializeField] private float _objectAnimationTime = 2f;
-    [SerializeField] private AnimationCurve _objectAnimationCurve;
+    [SerializeField] public float _objectAnimationTime = 2f;
+    [SerializeField] public AnimationCurve _objectAnimationCurve;
 
     private Ingredient _grabbedIngredient = null;
     private Tweener _objectMoveTween = null;

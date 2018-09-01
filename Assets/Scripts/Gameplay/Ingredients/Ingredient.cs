@@ -70,28 +70,26 @@ public class Ingredient : MonoBehaviour {
     }
     public Color Color
     {
-        get {
-            return _colorChanged ? _currentColorOverride : _color;
-        }
+        get { return _colorChanged ? _currentColorOverride : _color; }
     }
 
     #endregion
 
-    public struct SComparisonScore
+    public class SComparisonScore
     {
-        public float _colorScore;
-        public float _colorWeight;
+        public float _colorScore = 0f;
+        public float _colorWeight = 0f;
 
-        public float _solidityScore;
-        public float _solidityWeight;
+        public float _solidityScore = 0f;
+        public float _solidityWeight = 0f;
 
-        public float _lengthScore;
-        public float _lengthWeight;
+        public float _lengthScore = 0f;
+        public float _lengthWeight = 0f;
 
-        public float _temperatureScore;
-        public float _temperatureWeight;
+        public float _temperatureScore = 0f;
+        public float _temperatureWeight = 0f;
 
-        public float _globalScore;
+        public float _globalScore = 0f;
     }
 
     public void Awake() {
@@ -121,18 +119,20 @@ public class Ingredient : MonoBehaviour {
         float otherH = 0f, otherS = 0f, otherV = 0f;
         Color.RGBToHSV(other._color, out otherH, out otherS, out otherV);
 
-        SComparisonScore score;
-        score._colorScore = GetScore(h, otherH);
-        score._colorWeight = _colorWeight / totalWeight;
+        SComparisonScore score = new SComparisonScore
+        {
+            _colorScore = GetScore(h, otherH),
+            _colorWeight = _colorWeight / totalWeight,
 
-        score._solidityScore = GetScore(_rugosity, other._rugosity);
-        score._solidityWeight = _rugosityWeight / totalWeight;
+            _solidityScore = GetScore(_rugosity, other._rugosity),
+            _solidityWeight = _rugosityWeight / totalWeight,
 
-        score._lengthScore = GetScore(_length, other._length);
-        score._lengthWeight = _lengthWeight / totalWeight;
+            _lengthScore = GetScore(_length, other._length),
+            _lengthWeight = _lengthWeight / totalWeight,
 
-        score._temperatureScore = GetScore(_temperature, other._temperature);
-        score._temperatureWeight = _temperatureWeight / totalWeight;
+            _temperatureScore = GetScore(_temperature, other._temperature),
+            _temperatureWeight = _temperatureWeight / totalWeight
+        };
 
         score._globalScore = 
               score._colorScore * score._colorWeight
