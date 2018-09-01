@@ -23,8 +23,9 @@ public class IngredientSpawner : MonoBehaviour {
         _TimeToSpawn -= Time.deltaTime;
         if (_TimeToSpawn < 0)
         {
-            Ingredient ingredient = _IngredientPrefabs[Random.Range(0, _IngredientPrefabs.Count)];
-            GameObject.Instantiate(ingredient, transform.position, transform.rotation);
+            Ingredient ingredientPrefab = _IngredientPrefabs[Random.Range(0, _IngredientPrefabs.Count)];
+            Ingredient ingredient = GameObject.Instantiate(ingredientPrefab, transform.position, transform.rotation);
+            ingredient._OnConveyorBelt = true;
 
             _TimeToSpawn = _SpawnInterval;
         }

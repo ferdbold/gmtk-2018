@@ -150,6 +150,7 @@ MonoBehaviour:
   _temperature: 0.4
   _temperatureWeight: 0.25
   _ConveyorSpeed: 0.5
+  _OnConveyorBelt: 0
 --- !u!135 &135782159660170594
 SphereCollider:
   m_ObjectHideFlags: 1

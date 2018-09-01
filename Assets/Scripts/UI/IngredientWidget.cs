@@ -2,34 +2,35 @@
 
 public class IngredientWidget : MonoBehaviour {
 
-    #region ATTRIBUTES
-
     public Ingredient _IngredientPrefab;
-
-    #endregion // ATTRIBUTES
-
     private Ingredient _Ingredient;
     private TMPro.TextMeshProUGUI _Label;
+    private Transform _Holder;
 
     public void Start()
     {
         _Label = transform.Find("Label").GetComponent<TMPro.TextMeshProUGUI>();
+        _Holder = transform.Find("Holder");
     }
 
-    public void Update()
+    public void SetIngredient(Ingredient ingredient)
     {
-        if (_Ingredient != _IngredientPrefab)
+        if (ingredient == null)
         {
-            if (_IngredientPrefab != null)
-            {
-                _Label.text = _IngredientPrefab.name;
-                _Ingredient = GameObject.Instantiate(_IngredientPrefab, transform);
-            }
-            else
-            {
-                _Label.text = "";
-                GameObject.Destroy(_Ingredient.gameObject);
-            }
+            _Label.text = "";
+            GameObject.Destroy(_Ingredient);
+            return;
         }
+
+        Debug.Log("Spawning new ingredient");
+        if (_Ingredient != null)
+        {
+            GameObject.Destroy(_Ingredient.gameObject);
+        }
+        _Label.text = ingredient.name;
+        _Ingredient = GameObject.Instantiate(ingredient, _Holder);
+        _Ingredient.name = "WAT";
+        _Ingredient.transform.localPosition = Vector3.zero;
+        _Ingredient.gameObject.layer = 5;
     }
 }

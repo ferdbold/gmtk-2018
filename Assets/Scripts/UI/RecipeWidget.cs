@@ -19,11 +19,8 @@ public class RecipeWidget : MonoBehaviour {
         int recipeCount = newRecipe._Ingredients.Count;
         for (int i = 0; i < _IngredientWidgets.Count; i++)
         {
+            _IngredientWidgets[i].SetIngredient((recipeCount > i) ? newRecipe._Ingredients[i] : null);
             _IngredientWidgets[i].gameObject.SetActive(recipeCount > i);
-            if (recipeCount > i)
-            {
-                _IngredientWidgets[i]._IngredientPrefab = newRecipe._Ingredients[i];
-            }
         }
     }
 }

@@ -33,9 +33,9 @@ public class FadeInDelay : MonoBehaviour
     IEnumerator FadeIn()
     {
         yield return new WaitForSeconds(delay);
-        if (text != null)
+        /*if (text != null)
             text.DOFade(alphaTarget, animTime).SetEase(curve);
         else if (group != null)
-            group.DOFade(alphaTarget, animTime).SetEase(curve);
+            group.DOFade(alphaTarget, animTime).SetEase(curve);*/
     }
 }

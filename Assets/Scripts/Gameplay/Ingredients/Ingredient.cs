@@ -40,7 +40,9 @@ public class Ingredient : MonoBehaviour {
     #endregion // TRAITS
 
     public float _ConveyorSpeed;
-    public bool _OnConveyorBelt = true;
+
+    [HideInInspector]
+    public bool _OnConveyorBelt = false;
 
     #endregion // ATTRIBUTES
 
