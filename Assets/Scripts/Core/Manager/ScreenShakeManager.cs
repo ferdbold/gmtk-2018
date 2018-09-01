@@ -98,7 +98,7 @@ public class ScreenShakeManager : BaseManager<ScreenShakeManager>
 
         _currentDuration = Mathf.Max(_currentDuration, duration);
         _currentDuration += diffDuration * _overflowMultiplier;
-        Tweener durationTween = DOTween.To(() => _currentDuration, x => _currentDuration = x, 0f, _currentDuration);
+        /*Tweener durationTween = */DOTween.To(() => _currentDuration, x => _currentDuration = x, 0f, _currentDuration);
 
         Tweener shakeTween = null;
         shakeTween = _camera.DOShakePosition(_currentDuration, _currentIntensity, 10, 90, fadeOut);

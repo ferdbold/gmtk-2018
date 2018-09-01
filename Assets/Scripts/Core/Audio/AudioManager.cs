@@ -29,7 +29,7 @@ public class AudioManager : BaseManager<AudioManager>
 
     public override void OnStartManager()
     {
-        _musicManager = GetComponent<MusicManager>();
+        //_musicManager = GetComponent<MusicManager>();
         inactiveAudioSources = new List<AudioSource>(64);
         activeAudioSources = new List<AudioSource>(64);
 

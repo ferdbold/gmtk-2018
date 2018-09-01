@@ -9,53 +9,50 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1305863231642478}
+  m_RootGameObject: {fileID: 1677592530114700}
   m_IsPrefabAsset: 1
---- !u!1 &1305863231642478
+--- !u!1 &1677592530114700
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4375613476792470}
-  - component: {fileID: 114871388502506148}
+  - component: {fileID: 4293742597009136}
+  - component: {fileID: 114053305087054144}
   m_Layer: 0
-  m_Name: Saucisse
+  m_Name: IngredientSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4375613476792470
+--- !u!4 &4293742597009136
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1305863231642478}
+  m_GameObject: {fileID: 1677592530114700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.7249415, y: -2.6076293, z: 4.4727335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114871388502506148
+--- !u!114 &114053305087054144
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1305863231642478}
+  m_GameObject: {fileID: 1677592530114700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
+  m_Script: {fileID: 11500000, guid: 70deebeecb9e38049b2d07513d05e529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.8490566, g: 0.4545297, b: 0.13216448, a: 0}
-  _colorWeight: 0.5
-  _solidity: 0.2
-  _solidityWeight: 0.5
-  _length: 0.8
-  _lengthWeight: 0.5
-  _rugosity: 0.05
-  _rugosityWeight: 0.8
+  _IngredientPrefabs:
+  - {fileID: 114408050157622584, guid: 6354b139ff7fec145a6db1a7465463d4, type: 2}
+  - {fileID: 114576054608777158, guid: 3ba28777259415447ba4dbb56ef5a70a, type: 2}
+  - {fileID: 114871388502506148, guid: 742e4dff054390545b6a7b3cd4f52b0e, type: 2}
+  _SpawnInterval: 3
