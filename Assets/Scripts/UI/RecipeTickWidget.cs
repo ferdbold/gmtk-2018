@@ -10,6 +10,6 @@ public class RecipeTickWidget : MonoBehaviour {
 
     public void Update()
     {
-        _Value.text = ObjectiveManager.Instance._RecipeTickRemaining.ToString(":N3");
+        _Value.text = ":" + ObjectiveManager.Instance._RecipeTickRemaining.ToString("N0");
     }
 }
