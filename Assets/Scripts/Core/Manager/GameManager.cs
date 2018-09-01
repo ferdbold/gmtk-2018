@@ -37,9 +37,11 @@ public class GameManager : MonoBehaviour
     {
         _freezeMask = new GameFreezeMask(0);
         _managers = new IManager[_managersPrefab.Length];
+
         for(int i =0; i < _managersPrefab.Length; ++i)
         {
-            _managers[i] = _managersPrefab[i].Prefab.GetComponentInChildren<IManager>(true);
+            GameObject manager = Instantiate(_managersPrefab[i].Prefab);
+            _managers[i] = manager.GetComponentInChildren<IManager>(true);
         }
 
         Call_PreStartManager();

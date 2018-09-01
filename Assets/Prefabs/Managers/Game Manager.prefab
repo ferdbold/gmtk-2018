@@ -54,3 +54,4 @@ MonoBehaviour:
   _managersPrefab:
   - Prefab: {fileID: 1877276613877622, guid: 9171d6ec83dc4024a96011ad36ac7629, type: 2}
   - Prefab: {fileID: 1344957227765818, guid: 17e4fb26b28b8e4488984c59aebc5b30, type: 2}
+  - Prefab: {fileID: 1528613423010234, guid: bb2cb26ce1109fa4393451350d4fa8ab, type: 2}

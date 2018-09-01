@@ -23,7 +23,6 @@ public class AudioManager : BaseManager<AudioManager>
     private List<AudioSource> inactiveAudioSources;
     private List<AudioSource> activeAudioSources;
     private List<AudioSource> activeAudioSourcesToMuteOnDeath;
-    private AudioSource[] musicAudioSource;
 
     private AudioCooldownManager _audioCooldownManager;
     private MusicManager _musicManager;
@@ -31,7 +30,6 @@ public class AudioManager : BaseManager<AudioManager>
     public override void OnStartManager()
     {
         _musicManager = GetComponent<MusicManager>();
-        musicAudioSource = _musicManager.GetAudioSources();
         inactiveAudioSources = new List<AudioSource>(64);
         activeAudioSources = new List<AudioSource>(64);
 
