@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4619834565902650}
   - component: {fileID: 33910671282431034}
   - component: {fileID: 23063775988520174}
+  - component: {fileID: 65107327699340620}
   m_Layer: 0
   m_Name: Ing_Book
   m_TagString: Untagged
@@ -53,7 +54,6 @@ GameObject:
   - component: {fileID: 4157621197038930}
   - component: {fileID: 54805084258392504}
   - component: {fileID: 114559045095456728}
-  - component: {fileID: 65949635609679352}
   m_Layer: 0
   m_Name: Book
   m_TagString: Untagged
@@ -188,18 +188,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65949635609679352
+--- !u!65 &65107327699340620
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1689756061170754}
+  m_GameObject: {fileID: 1334160762150634}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.03, z: 0.2}
-  m_Center: {x: 0, y: 0.02, z: 0}
+  m_Size: {x: 0.015773162, y: 0.012625644, z: 0.0018977249}
+  m_Center: {x: 0, y: 0, z: 0.0010428363}
 --- !u!114 &114559045095456728
 MonoBehaviour:
   m_ObjectHideFlags: 1

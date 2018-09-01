@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4714602836344710}
   - component: {fileID: 33708238718551102}
   - component: {fileID: 23797473604006110}
+  - component: {fileID: 135853643849659704}
   m_Layer: 0
   m_Name: Ing_Ball
   m_TagString: Untagged
@@ -38,7 +39,6 @@ GameObject:
   - component: {fileID: 4431337165269988}
   - component: {fileID: 54363161228232320}
   - component: {fileID: 114367615929328044}
-  - component: {fileID: 135088343131106152}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -209,15 +209,15 @@ MonoBehaviour:
   _temperatureWeight: 0.5
   _ConveyorSpeed: 0.5
   _OnConveyorBelt: 0
---- !u!135 &135088343131106152
+--- !u!135 &135853643849659704
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1194145236646124}
+  m_GameObject: {fileID: 1077508266685706}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.12
-  m_Center: {x: 0, y: 0.12, z: 0}
+  m_Radius: 0.007753373
+  m_Center: {x: 0, y: 0, z: 0.0077525424}
