@@ -9,6 +9,7 @@ public class RecipeWidget : MonoBehaviour {
     #region ATTRIBUTES
 
     public List<IngredientWidget> _IngredientWidgets;
+    public TMPro.TextMeshProUGUI _RecipeName;
     public Image _Grade;
 
     [SerializeField]
@@ -38,6 +39,7 @@ public class RecipeWidget : MonoBehaviour {
             _IngredientWidgets[i].gameObject.SetActive(recipeCount > i);
         }
 
+        _RecipeName.text = newRecipe._Name;
         SetGrade(null);
     }
 
