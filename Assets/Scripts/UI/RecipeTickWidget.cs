@@ -8,6 +8,7 @@ public class RecipeTickWidget : MonoBehaviour {
 
     public TMPro.TextMeshProUGUI _Value;
     public Image _NewRecipeLabel;
+    public Image _Arrow;
 
     public Color _NormalColor;
     public Color _InterludeColor;
@@ -23,6 +24,7 @@ public class RecipeTickWidget : MonoBehaviour {
 
     public void Update()
     {
+        // Update remaining recipe time
         bool isInterlude = ObjectiveManager.Instance.IsInterlude();
         float time = (isInterlude)
             ? ObjectiveManager.Instance._RecipeInterludeRemaining
@@ -30,6 +32,10 @@ public class RecipeTickWidget : MonoBehaviour {
         
         _Value.text = time.ToString("N0");
         _Value.color = (isInterlude) ? _InterludeColor : _NormalColor;
+
+        // Update arrow
+        float rotation = ObjectiveManager.Instance._RemainingGameTime / ObjectiveManager.Instance._GameDuration * 360f;
+        _Arrow.rectTransform.rotation = Quaternion.Euler(0, 0, rotation);
     }
 
     public void OnRecipeChanged(Recipes.SRecipe newRecipe)
