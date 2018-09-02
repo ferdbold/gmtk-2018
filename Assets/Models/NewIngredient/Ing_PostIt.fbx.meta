@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_PostIt_low
     3300000: Ing_PostIt_low
     4300000: Ing_PostIt_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_PostIt
+    second: {fileID: 2100000, guid: a18f0c36cf186a142860a4ecf5d8b8f1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

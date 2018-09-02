@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_Ball_low
     3300000: Ing_Ball_low
     4300000: Ing_Ball_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_Ball
+    second: {fileID: 2100000, guid: d60ebe307572c4c42af15480ef7bb82b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

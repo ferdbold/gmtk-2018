@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_Pencil_low
     3300000: Ing_Pencil_low
     4300000: Ing_Pencil_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_Pencil
+    second: {fileID: 2100000, guid: 8dcef25c42270884b81f11d55cc5bdf8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_Marker_low
     3300000: Ing_Marker_low
     4300000: Ing_Marker_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_Marker
+    second: {fileID: 2100000, guid: 93f95f94fbcf12648badfc037ac1a321, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

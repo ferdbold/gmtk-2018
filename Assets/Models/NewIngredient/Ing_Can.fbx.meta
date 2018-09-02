@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_Can_low
     3300000: Ing_Can_low
     4300000: Ing_Can_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_Can
+    second: {fileID: 2100000, guid: d223df4838794a34d8235236d4d10886, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

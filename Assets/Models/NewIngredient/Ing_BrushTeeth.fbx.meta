@@ -20,7 +20,12 @@ ModelImporter:
     3300002: Ing_BrushTeeth_02_low
     4300000: Ing_BrushTeeth_01_low
     4300002: Ing_BrushTeeth_02_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_BrushTeeth
+    second: {fileID: 2100000, guid: 1210946ebce2f414bb0bfe9d0dfa0564, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

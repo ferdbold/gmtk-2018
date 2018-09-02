@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_Soap_low
     3300000: Ing_Soap_low
     4300000: Ing_Soap_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_Soap
+    second: {fileID: 2100000, guid: c62ec6f00cb2ff3448a0f68cfd0357ad, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

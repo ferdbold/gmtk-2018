@@ -35,7 +35,12 @@ ModelImporter:
     4300004: Ing_GameController_03_low
     4300006: Ing_GameController_04_low
     4300008: Ing_GameController_05_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_GameController
+    second: {fileID: 2100000, guid: 3e71bff5aa5d4834e923f62d60c6463a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_PQ_low
     3300000: Ing_PQ_low
     4300000: Ing_PQ_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_PQ
+    second: {fileID: 2100000, guid: d84d0422e1ecde844a175bd681900140, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_CerealBox_low
     3300000: Ing_CerealBox_low
     4300000: Ing_CerealBox_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_CerealBox
+    second: {fileID: 2100000, guid: cb6806b2d2454d340baaf3efb8331cea, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

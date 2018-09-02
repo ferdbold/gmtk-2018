@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_Cup_low
     3300000: Ing_Cup_low
     4300000: Ing_Cup_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_Cup1
+    second: {fileID: 2100000, guid: b9f7cfcc87448b04cbd65e11db426bd0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

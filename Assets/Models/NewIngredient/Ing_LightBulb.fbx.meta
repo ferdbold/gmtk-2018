@@ -25,7 +25,12 @@ ModelImporter:
     4300000: Ing_LightBulb_01_low
     4300002: Ing_LightBulb_02_low
     4300004: Ing_LightBulb_03_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_LightBulb
+    second: {fileID: 2100000, guid: 4432ccaae40605949bbb59eb36934bc0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_CellPhone_low
     3300000: Ing_CellPhone_low
     4300000: Ing_CellPhone_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_CellPhone
+    second: {fileID: 2100000, guid: 26d06c11a5624104492f3f110ed213e6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

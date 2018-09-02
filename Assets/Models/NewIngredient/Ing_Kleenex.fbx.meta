@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Ing_Kleenex_low
     3300000: Ing_Kleenex_low
     4300000: Ing_Kleenex_low
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mtl_Ing_Kleenex
+    second: {fileID: 2100000, guid: 7f6ce1d2b83ee60419ec143bb7f387ff, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
