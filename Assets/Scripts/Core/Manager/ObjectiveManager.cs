@@ -87,6 +87,8 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
             recipeScore._GlobalScore += ingredientScore._globalScore / ingredientCount;
         }
 
+        _Score += (int)(recipeScore._GlobalScore * 100);
+
         if (OnRecipeShipped != null) OnRecipeShipped(recipeScore);
     }
 }

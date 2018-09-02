@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class IngredientWidget : MonoBehaviour {
 
     public Ingredient _IngredientPrefab;
     private Ingredient _Ingredient;
+
     private TMPro.TextMeshProUGUI _Label;
     private Transform _Holder;
+    private Image _Grade;
 
     public void Start()
     {
         _Label = transform.Find("Label").GetComponent<TMPro.TextMeshProUGUI>();
         _Holder = transform.Find("Holder");
+        _Grade = transform.Find("Grade").GetComponent<Image>();
     }
 
     public void SetIngredient(Ingredient ingredient)
@@ -30,5 +35,20 @@ public class IngredientWidget : MonoBehaviour {
         _Ingredient = GameObject.Instantiate(ingredient, _Holder);
         _Ingredient.transform.localPosition = Vector3.zero;
         _Ingredient.gameObject.layer = 5;
+
+        SetGrade(null);
+    }
+
+    public void SetGrade(Sprite sprite)
+    {
+        _Grade.sprite = sprite;
+        _Grade.color = new Color(1f, 1f, 1f, 0f);
+
+        if (sprite != null)
+        {
+            _Grade.rectTransform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            _Grade.rectTransform.DOScale(1f, 0.5f).SetEase(Ease.OutCirc);
+            _Grade.DOFade(1f, 0.5f);
+        }
     }
 }

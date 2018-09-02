@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class RecipeWidget : MonoBehaviour {
 
     #region ATTRIBUTES
 
     public List<IngredientWidget> _IngredientWidgets;
+    public Image _Grade;
 
     [SerializeField]
     public List<SGrade> _grades;
@@ -34,10 +37,46 @@ public class RecipeWidget : MonoBehaviour {
             _IngredientWidgets[i].SetIngredient((recipeCount > i) ? newRecipe._Ingredients[i] : null);
             _IngredientWidgets[i].gameObject.SetActive(recipeCount > i);
         }
+
+        SetGrade(null);
     }
 
     public void OnRecipeShipped(ObjectiveManager.SRecipeScore recipeScore)
     {
+        for (int i = 0; i < _IngredientWidgets.Count; i++)
+        {
+            float ingredientScore = (recipeScore._IngredientScores.Count > i) ? recipeScore._IngredientScores[i]._globalScore : 0f;
+            _IngredientWidgets[i].SetGrade(GetGradeSprite(ingredientScore));
+        }
+
+        SetGrade(GetGradeSprite(recipeScore._GlobalScore));
+
         Debug.Log("Recipe SHIPPED");
+    }
+
+    public Sprite GetGradeSprite(float score)
+    {
+        foreach (SGrade grade in _grades)
+        {
+            if (score >= grade._scoreThreshold)
+            {
+                return grade._sprite;
+            }
+        }
+
+        return null;
+    }
+
+    public void SetGrade(Sprite sprite)
+    {
+        _Grade.sprite = sprite;
+        _Grade.color = new Color(1f, 1f, 1f, 0f);
+
+        if (sprite != null)
+        {
+            _Grade.rectTransform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            _Grade.rectTransform.DOScale(1f, 0.5f).SetEase(Ease.OutCirc);
+            _Grade.DOFade(1f, 0.5f);
+        }
     }
 }
