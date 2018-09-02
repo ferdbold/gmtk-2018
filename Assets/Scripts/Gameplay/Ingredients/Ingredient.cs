@@ -43,7 +43,7 @@ public class Ingredient : MonoBehaviour {
     private MeshRenderer[] _meshRenderer;
 
     private float _currentLenghtChange = 0f;
-    private float _lenghtChangeMax = 0.35f;
+    private float _lenghtChangeMax = 0.30f;
 
     private float _currentRugosityChange = 0f;
     private float _rugosityChangeMax = 0.4f;
@@ -170,7 +170,7 @@ public class Ingredient : MonoBehaviour {
         _currentLenghtChange += change;
         _currentLenghtChange = Mathf.Clamp(_currentLenghtChange, -_lenghtChangeMax, _lenghtChangeMax);
 
-        _visuals.localScale = new Vector3(  1f + Mathf.Lerp(0, Mathf.Sign(_currentLenghtChange) * 0.40f, Mathf.Abs(_currentLenghtChange) / _lenghtChangeMax),
+        _visuals.localScale = new Vector3(  1f + Mathf.Lerp(0, Mathf.Sign(_currentLenghtChange) * 0.5f, Mathf.Abs(_currentLenghtChange) / _lenghtChangeMax),
                                             1f - Mathf.Lerp(0, Mathf.Sign(_currentLenghtChange) * 0.25f, Mathf.Abs(_currentLenghtChange) / _lenghtChangeMax),
                                             1f - Mathf.Lerp(0, Mathf.Sign(_currentLenghtChange) * 0.25f, Mathf.Abs(_currentLenghtChange) / _lenghtChangeMax));
     }
