@@ -864,9 +864,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationType: 0
   RangeSpeed: {x: 15, y: 20}
-  RangeRotationX: {x: 0, y: 0}
-  RangeRotationY: {x: 1, y: 1}
-  RangeRotationZ: {x: 0, y: 0}
+  RangeRotationX: {x: 1, y: 2}
+  RangeRotationY: {x: 1, y: 2}
+  RangeRotationZ: {x: 1, y: 2}
   applyRandomDirection: 1
   oscillationTime: 0
   oscillationCurve:
@@ -910,9 +910,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationType: 0
   RangeSpeed: {x: 15, y: 20}
-  RangeRotationX: {x: 0, y: 0}
-  RangeRotationY: {x: 1, y: 1}
-  RangeRotationZ: {x: 0, y: 0}
+  RangeRotationX: {x: 1, y: 2}
+  RangeRotationY: {x: 1, y: 2}
+  RangeRotationZ: {x: 1, y: 2}
   applyRandomDirection: 1
   oscillationTime: 0
   oscillationCurve:
@@ -1483,9 +1483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationType: 0
   RangeSpeed: {x: 15, y: 20}
-  RangeRotationX: {x: 0, y: 0}
-  RangeRotationY: {x: 1, y: 1}
-  RangeRotationZ: {x: 0, y: 0}
+  RangeRotationX: {x: 1, y: 2}
+  RangeRotationY: {x: 1, y: 2}
+  RangeRotationZ: {x: 1, y: 2}
   applyRandomDirection: 1
   oscillationTime: 0
   oscillationCurve:
