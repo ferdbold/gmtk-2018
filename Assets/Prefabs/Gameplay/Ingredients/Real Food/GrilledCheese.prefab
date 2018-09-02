@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 54857067598521204}
   - component: {fileID: 114498788630994768}
   m_Layer: 0
-  m_Name: Cheese
+  m_Name: GrilledCheese
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,13 +211,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.99518883, g: 1, b: 0, a: 0}
+  _color: {r: 1, g: 0.6640479, b: 0, a: 0}
   _colorWeight: 0.8
   _rugosity: 0.75
-  _rugosityWeight: 0.4
-  _length: 0.5
-  _lengthWeight: 0.25
-  _temperature: 0.5
-  _temperatureWeight: 0.25
+  _rugosityWeight: 0.3
+  _length: 0.7
+  _lengthWeight: 0.15
+  _temperature: 1
+  _temperatureWeight: 0.8
   _ConveyorSpeed: 0.5
   _OnConveyorBelt: 0
