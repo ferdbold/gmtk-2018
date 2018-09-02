@@ -11,9 +11,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98769e6c415c2c043bf158ff20a6647b, type: 3}
   m_Name: Audio Data
   m_EditorClassIdentifier: 
-  UsedStationPreparation: {fileID: 0}
-  UsedStationShape: {fileID: 0}
-  UsedStationOven: {fileID: 0}
-  UsedStationClean: {fileID: 0}
-  UsedStationGloss: {fileID: 0}
-  UsedStationColor: {fileID: 0}
+  UsedStation_Preparation:
+  - {fileID: 8300000, guid: 8c7cf45baf74c9945b2140d1fbd72c98, type: 3}
+  - {fileID: 8300000, guid: b59733c9bbdd96a488a307af9d48e7b0, type: 3}
+  - {fileID: 8300000, guid: 5fe02f33825c8664a87cbcf42093e965, type: 3}
+  - {fileID: 8300000, guid: db04890fa79d1734197b4e2d1a2f6986, type: 3}
+  UsedStation_Shape:
+  - {fileID: 8300000, guid: bfa50917aac3e474ebac2c29db7d07f2, type: 3}
+  - {fileID: 8300000, guid: fe797f3e52e51444086143302c098718, type: 3}
+  - {fileID: 8300000, guid: b6f727278ca034240830ad1378628dac, type: 3}
+  - {fileID: 8300000, guid: 1b59c9a7226f27647854b2365821c807, type: 3}
+  - {fileID: 8300000, guid: 4e06e0aa43f40da41a7bbbefbb519afe, type: 3}
+  - {fileID: 8300000, guid: fd4bc763ee4819d4d827dbf3b3adc65e, type: 3}
+  - {fileID: 8300000, guid: 31dd07404b41bfa438fa4d4d8934f776, type: 3}
+  - {fileID: 8300000, guid: 212e76c319627c747bac00510766814a, type: 3}
+  - {fileID: 8300000, guid: 264205ef6c6b02f4ebe4954bf472212c, type: 3}
+  UsedStation_Oven:
+  - {fileID: 8300000, guid: 08f5c10a948229848ab9a31db630bfe7, type: 3}
+  UsedStation_Clean:
+  - {fileID: 8300000, guid: c3ee3e70a8494304d88a1d4271beca61, type: 3}
+  - {fileID: 8300000, guid: b813bfe8b8197d04988e664fb856d638, type: 3}
+  - {fileID: 8300000, guid: 1a31fba735949954888f354a9e0acede, type: 3}
+  - {fileID: 8300000, guid: a4a538715e1f6fd4a82ee24dc666bf78, type: 3}
+  - {fileID: 8300000, guid: 0bbb49e912a279d419d0496edcabb675, type: 3}
+  UsedStation_Gloss:
+  - {fileID: 8300000, guid: f567bd1a3b18b344ca6d6d147c99782c, type: 3}
+  UsedStation_Color:
+  - {fileID: 8300000, guid: 4ee61dbd86667f74ba10e062d87268cc, type: 3}
+  UsedStation_Bell:
+  - {fileID: 8300000, guid: 800a58661c2de3d4bb64118c839d9c07, type: 3}
+  - {fileID: 8300000, guid: 8748b221e664df74abeaa81e75c28edc, type: 3}
+  - {fileID: 8300000, guid: f1c45767fd555f54b861f06a62327e8a, type: 3}
+  ObjectInteraction_Grab:
+  - {fileID: 8300000, guid: c27aad0e3a3dce0459e3daaa200e3c72, type: 3}
+  ObjectInteraction_StationSelection:
+  - {fileID: 8300000, guid: 743f970e7f06b3a4eacfae47aa1ffa12, type: 3}
+  Objective_NewRecipe:
+  - {fileID: 8300000, guid: 96957e4c82f3aa54987ab30c96e2d761, type: 3}
