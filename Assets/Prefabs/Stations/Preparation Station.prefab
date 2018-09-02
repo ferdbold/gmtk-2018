@@ -125,6 +125,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1593434526753574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4608786824848912}
+  - component: {fileID: 108771227486206514}
+  m_Layer: 0
+  m_Name: Station Spotlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1647081980461322
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +231,7 @@ Transform:
   m_LocalPosition: {x: -0.494, y: 1.048, z: -1.298}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4608786824848912}
   - {fileID: 4601443009568534}
   - {fileID: 4738652039163848}
   - {fileID: 4553293690344516}
@@ -263,7 +280,7 @@ Transform:
   m_Children:
   - {fileID: 4658356265741380}
   m_Father: {fileID: 4077548195167010}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4344922050795726
 Transform:
@@ -289,7 +306,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4077548195167010}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -290, z: 0}
 --- !u!4 &4565325535112742
 Transform:
@@ -315,8 +332,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4077548195167010}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4608786824848912
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1593434526753574}
+  m_LocalRotation: {x: 0.69657564, y: -0.12158291, z: 0.12158291, w: 0.69657564}
+  m_LocalPosition: {x: 0.064, y: 2.1680002, z: -0.192}
+  m_LocalScale: {x: 1, y: 1.0000015, z: 1.0000015}
+  m_Children: []
+  m_Father: {fileID: 4077548195167010}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4658356265741380
 Transform:
   m_ObjectHideFlags: 1
@@ -341,7 +371,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4077548195167010}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 5, z: 0}
 --- !u!4 &4935345568153814
 Transform:
@@ -370,7 +400,7 @@ Transform:
   - {fileID: 4344922050795726}
   - {fileID: 4099839415455728}
   m_Father: {fileID: 4077548195167010}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23243430243854068
 MeshRenderer:
@@ -612,6 +642,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!108 &108771227486206514
+Light:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1593434526753574}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0
+  m_Range: 10
+  m_SpotAngle: 33.5
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!114 &114136789544031056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -626,6 +693,8 @@ MonoBehaviour:
   _anchor: {fileID: 4601443009568534}
   _selectionAngle: 30
   _stationType: 3
+  _stationSpotLight: {fileID: 108771227486206514}
+  _stationUI: {fileID: 0}
   _animator: {fileID: 95534093155338186}
   _shipBellLayer:
     serializedVersion: 2
