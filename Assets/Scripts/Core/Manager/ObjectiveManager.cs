@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,6 +39,7 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
     private bool _gameStarted = false;
     private bool _gameEnded = false;
+    private bool _gameReadyToRestart = false;
     private bool _firstRecipeReceived = false;
     private bool _alreadyShipped = false;
 
@@ -56,7 +58,7 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
     public override void OnUpdateManager(float deltaTime)
     {
         // Restart game
-        if (_gameEnded && Input.GetMouseButtonDown(0))
+        if (_gameReadyToRestart && Input.GetMouseButtonDown(0))
         {
             GameManager.EndGame();
         }
@@ -174,7 +176,12 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
     public void GameEnd()
     {
         _gameEnded = true;
-
+        StartCoroutine(GameRestardCooldown());
         if (OnGameEnded != null) OnGameEnded();
+    }
+
+    private IEnumerator GameRestardCooldown() {
+        yield return new WaitForSeconds(3f);
+        _gameReadyToRestart = true;
     }
 }
