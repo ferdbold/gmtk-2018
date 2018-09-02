@@ -9,6 +9,7 @@ public class PlayerManager : BaseManager<PlayerManager> {
 
     [Header("Movement")]
     [SerializeField] private AnimationCurve _movementCurve;
+    [SerializeField] private float multiplier = 1f;
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _gravity = 1f;
     [SerializeField] private float maxSpeed = 3f;
@@ -63,7 +64,7 @@ public class PlayerManager : BaseManager<PlayerManager> {
 
     private void OnPlayerMove()
     {       
-        _player.Rotate(Vector3.up, _currentVelocity);
+        _player.Rotate(Vector3.up, _currentVelocity * Time.deltaTime * multiplier);
     }
 
     #endregion
