@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4654289965591268}
+  - component: {fileID: 65780359513077922}
   m_Layer: 0
   m_Name: Ing_Weiner
   m_TagString: Untagged
@@ -36,7 +37,6 @@ GameObject:
   - component: {fileID: 4527649629520072}
   - component: {fileID: 33644021874222458}
   - component: {fileID: 23970321195987958}
-  - component: {fileID: 64908122983325946}
   m_Layer: 0
   m_Name: Ing_Weiner
   m_TagString: Untagged
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1451702266297346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.656364, y: 0, z: 0}
+  m_LocalPosition: {x: 1.6062549, y: 2.470187, z: 2.330524}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4659229556416124}
@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223898688727062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0063, y: 0, z: -0.0337}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4654289965591268}
@@ -188,20 +188,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64908122983325946
-MeshCollider:
+--- !u!65 &65780359513077922
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1223898688727062}
+  m_GameObject: {fileID: 1066034272704374}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 70ba6ca39b0bcee46b2babbc3ec7ef18, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.4, z: 0.07}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114538937370002336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,14 +211,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.745283, g: 0.24256852, b: 0.45774445, a: 0}
-  _colorWeight: 0.8
+  _color: {r: 0.7735849, g: 0.31176016, b: 0.28097185, a: 0}
+  _colorWeight: 0.6
   _rugosity: 0.1
-  _rugosityWeight: 0.6
+  _rugosityWeight: 0.7
   _length: 0.9
-  _lengthWeight: 0.8
-  _temperature: 0.4
-  _temperatureWeight: 0.2
+  _lengthWeight: 0.7
+  _temperature: 0.7
+  _temperatureWeight: 0.5
   _ConveyorSpeed: 0.5
   _OnConveyorBelt: 0
   _CanBeGrabbed: 1

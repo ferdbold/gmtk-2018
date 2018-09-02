@@ -58,6 +58,6 @@ public class IngredientWidget : MonoBehaviour {
     }
     public void RemoveEmphasis() {
         if (_Ingredient != null)
-            _Ingredient.transform.localScale = Vector3.one * 0.4f;
+            _Ingredient.transform.localScale = Vector3.one * 0.6f;
     }
 }
