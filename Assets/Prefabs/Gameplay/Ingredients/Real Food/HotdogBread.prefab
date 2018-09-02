@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4718106074063434}
+  - component: {fileID: 65889394562224668}
   m_Layer: 0
   m_Name: UIHotBread
   m_TagString: Untagged
@@ -96,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377477555212700}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0279, y: 0.0001, z: -0.0123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4718106074063434}
@@ -109,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1154020473463258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.4, y: 0.052, z: 0.333}
+  m_LocalPosition: {x: 1.736, y: 2.5197864, z: 1.8730614}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4627845626376308}
@@ -123,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163367737528678}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.044554, y: -0.017444, z: 0.00063342}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.6489787, y: 2.6489787, z: 2.6489787}
   m_Children:
   - {fileID: 4633523144751416}
@@ -187,6 +188,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65889394562224668
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163367737528678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.105, y: 0.05, z: 0.035}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114164266637398800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.7434303, g: 0.8490566, b: 0.40450338, a: 0}
+  _color: {r: 1, g: 1, b: 0.8352942, a: 0}
   _colorWeight: 0.85
   _rugosity: 0.75
   _rugosityWeight: 0.35

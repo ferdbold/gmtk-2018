@@ -51,6 +51,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4398233380891394}
+  - component: {fileID: 65268564150827874}
   m_Layer: 0
   m_Name: UITomato
   m_TagString: Untagged
@@ -82,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908831065940114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.4, y: 0.127, z: 0}
+  m_LocalPosition: {x: 1.3255, y: 2.5277557, z: 2.0508757}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4971774366818668}
@@ -110,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1469140995740572}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000000034713372, y: 0.0005251838, z: 0.0060999263}
+  m_LocalPosition: {x: 0.0013, y: 0.0005, z: -0.0038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4398233380891394}
@@ -187,6 +188,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65268564150827874
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1598259917523184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.05, z: 0.04}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114668891449117684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,10 +211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 1, g: 0, b: 0, a: 0}
+  _color: {r: 0.97647065, g: 0.27058825, b: 0.26666668, a: 0}
   _colorWeight: 1
   _rugosity: 0.2
-  _rugosityWeight: 0.5
+  _rugosityWeight: 0.7
   _length: 0.3
   _lengthWeight: 0.3
   _temperature: 0.5

@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1652508031066634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.263271, y: 0, z: 0}
+  m_LocalPosition: {x: -0.038547043, y: 1.9411925, z: 0.007492721}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4311416814179754}
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 1, g: 1, b: 1, a: 0}
+  _color: {r: 0.6784314, g: 0.6156863, b: 0.44705886, a: 0}
   _colorWeight: 0.5
   _rugosity: 0
   _rugosityWeight: 0.5
@@ -221,3 +221,4 @@ MonoBehaviour:
   _temperatureWeight: 0.067
   _ConveyorSpeed: 0.5
   _OnConveyorBelt: 0
+  _CanBeGrabbed: 1
