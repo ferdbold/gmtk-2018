@@ -34,7 +34,9 @@ public class PlayerManager : BaseManager<PlayerManager> {
 
 
     public override void OnUpdateManager(float deltaTime) {
-        HandleHorizontalMovement();
+        if(ObjectiveManager.GameStarted) {
+            HandleHorizontalMovement();
+        }
     }
     #endregion
 
