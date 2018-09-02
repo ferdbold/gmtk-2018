@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
 public class InventoryManager : BaseManager<InventoryManager> {
+
+    public static event Action OnObjectGrabbed;
 
     [SerializeField] private LayerMask _objectLayerMask;
     [SerializeField] public float _objectAnimationTime = 2f;
@@ -48,6 +50,7 @@ public class InventoryManager : BaseManager<InventoryManager> {
                 Ingredient ing = hit.collider.gameObject.GetComponentInParent<Ingredient>();
                 _grabbedIngredient = ing;
                 AttachObjectToInventory();
+                if (OnObjectGrabbed != null) OnObjectGrabbed();
             }
         }
     }

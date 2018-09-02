@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98769e6c415c2c043bf158ff20a6647b, type: 3}
+  m_Name: Audio Data
+  m_EditorClassIdentifier: 
+  UsedStationPreparation: {fileID: 0}
+  UsedStationShape: {fileID: 0}
+  UsedStationOven: {fileID: 0}
+  UsedStationClean: {fileID: 0}
+  UsedStationGloss: {fileID: 0}
+  UsedStationColor: {fileID: 0}

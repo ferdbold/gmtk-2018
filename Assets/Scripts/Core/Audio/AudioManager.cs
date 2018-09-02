@@ -18,7 +18,8 @@ public class AudioManager : BaseManager<AudioManager>
     public AudioMixerGroup MusicMasterMixer;
     public AudioMixerGroup GameplayMusicMasterMixer;
 
-    [Header("Audio Clips")] public AudioClip test; //Use Audio Clips or Scriptable objects
+    [Header("Audio Clips")] 
+    public AudioData audioData; //Use Audio Clips or Scriptable objects
 
     private List<AudioSource> inactiveAudioSources;
     private List<AudioSource> activeAudioSources;
@@ -49,19 +50,73 @@ public class AudioManager : BaseManager<AudioManager>
     //Callbacks
     public override void OnRegisterCallbacks()
     {
-        //Register Callbacks
+        CleanStation.OnCleanStationUsed += OnCleanStationUsed;
+        PreparationStation.OnPreparationStationUsed += OnPreparationStationUsed;
+        ShapeStation.OnShapeStationUsed += OnShapeStationUsed;
+        OvenStation.OnOvenStationUsed += OnOvenStationUsed;
+        ColorStation.OnColorStationUsed += OnColorStationUsed;
+        GlossStation.OnGlossStationUsed += OnGlossStationUsed;
+
+        ObjectiveManager.OnRecipeShipped += OnRecipeShipped;
+        ObjectiveManager.OnRecipeChanged += OnRecipeChanged;
+
+        WorkStation.OnStationSelected += OnStationSelected;
+        InventoryManager.OnObjectGrabbed += OnObjectGrabbed;
     }
 
     public override void OnUnregisterCallbacks()
     {
-        //Unregister Callbacks
+        CleanStation.OnCleanStationUsed -= OnCleanStationUsed;
+        PreparationStation.OnPreparationStationUsed -= OnPreparationStationUsed;
+        ShapeStation.OnShapeStationUsed -= OnShapeStationUsed;
+        OvenStation.OnOvenStationUsed -= OnOvenStationUsed;
+        ColorStation.OnColorStationUsed -= OnColorStationUsed;
+        GlossStation.OnGlossStationUsed -= OnGlossStationUsed;
+
+        ObjectiveManager.OnRecipeShipped -= OnRecipeShipped;
+        ObjectiveManager.OnRecipeChanged -= OnRecipeChanged;
+
+        WorkStation.OnStationSelected -= OnStationSelected;
+        InventoryManager.OnObjectGrabbed -= OnObjectGrabbed;
     }
 
     #region CALLBACKS
 
-    private void Callback_Exemple()
+    //Stations
+    private void OnCleanStationUsed()
     {
-        PlaySoundEffect(test);
+        PlaySoundEffect(audioData.UsedStation_Clean);
+    }
+    private void OnPreparationStationUsed() {
+        PlaySoundEffect(audioData.UsedStation_Preparation);
+    }
+    private void OnShapeStationUsed() {
+        PlaySoundEffect(audioData.UsedStation_Shape);
+    }
+    private void OnOvenStationUsed() {
+        PlaySoundEffect(audioData.UsedStation_Oven);
+    }
+    private void OnColorStationUsed() {
+        PlaySoundEffect(audioData.UsedStation_Color);
+    }
+    private void OnGlossStationUsed() {
+        PlaySoundEffect(audioData.UsedStation_Gloss);
+    }
+
+    //Objective
+    private void OnRecipeShipped(ObjectiveManager.SRecipeScore score) {
+        PlaySoundEffect(audioData.UsedStation_Bell);
+    }
+    private void OnRecipeChanged(Recipes.SRecipe recipe) {
+        PlaySoundEffect(audioData.Objective_NewRecipe);
+    }
+
+    //Inventory
+    private void OnStationSelected(WorkStation ws) {
+        PlaySoundEffect(audioData.ObjectInteraction_StationSelection);
+    }
+    private void OnObjectGrabbed() {
+        PlaySoundEffect(audioData.ObjectInteraction_Grab);
     }
 
     #endregion
