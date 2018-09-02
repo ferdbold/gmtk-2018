@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class WorkStation : MonoBehaviour {
 
@@ -23,13 +24,15 @@ public class WorkStation : MonoBehaviour {
     [SerializeField] private float _selectionAngle;
     [SerializeField] private StationType _stationType;
     [SerializeField] private Light _stationSpotLight;
-    [SerializeField] private CanvasGroup _stationUI;
+    [SerializeField] private TextMeshPro _stationUI;
 
     [Header("Animation")]
     [SerializeField] protected Animator _animator;
     private int _animatorSelectedHash;
     private int _animatorUsedHash;
     private Sequence _selectionSequence;
+
+    private bool _showTutorial = true;
 
     public Transform Anchor { get { return _anchor; } }
     public float SelectionAngle { get { return _selectionAngle; } }
@@ -42,6 +45,10 @@ public class WorkStation : MonoBehaviour {
         _animatorUsedHash = Animator.StringToHash("used");
         _animator.SetBool(_animatorSelectedHash, false);
         _animator.ResetTrigger(_animatorUsedHash);
+        _showTutorial = true;
+
+        if (_stationUI != null)
+            _selectionSequence.Insert(0f, _stationUI.DOFade(0f, 0.5f));
     }
 
     public virtual void UpdateStation(float deltaTime) {
@@ -64,6 +71,7 @@ public class WorkStation : MonoBehaviour {
     public virtual void UseStation(Ingredient ingredient) {
         _animator.SetTrigger(_animatorUsedHash);
         if (OnStationUsed != null) OnStationUsed(this);
+        _showTutorial = false;
     }
 
     private void HandleSelectionSequence(bool selected) {
@@ -80,7 +88,7 @@ public class WorkStation : MonoBehaviour {
         }
 
         if(_stationUI != null) {
-            if (selected)
+            if (selected && _showTutorial)
                 _selectionSequence.Insert(0f, _stationUI.DOFade(1f, 2f));
             else
                 _selectionSequence.Insert(0f, _stationUI.DOFade(0f, 0.5f));
