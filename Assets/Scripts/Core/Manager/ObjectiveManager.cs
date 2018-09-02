@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
@@ -31,11 +32,13 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
     #endregion // ATTRIBUTES
 
     public static event Action OnGameStarted;
+    public static event Action OnGameEnded;
     public static event Action<Recipes.SRecipe> OnRecipeChanged;
     public static event Action<SRecipeScore> OnRecipeShipped;
     public static event Action OnRecipeInterlude;
 
     private bool _gameStarted = false;
+    private bool _gameEnded = false;
     private bool _firstRecipeReceived = false;
     private bool _alreadyShipped = false;
 
@@ -51,7 +54,13 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
     public override void OnUpdateManager(float deltaTime)
     {
-        if (!_gameStarted)
+        // Restart game
+        if (_gameEnded && Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene("Main");
+        }
+
+        if (!_gameStarted || _gameEnded)
         {
             return;
         }
@@ -163,7 +172,8 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
     public void GameEnd()
     {
-        // TODO
-        Debug.Log("Game Over");
+        _gameEnded = true;
+
+        if (OnGameEnded != null) OnGameEnded();
     }
 }
