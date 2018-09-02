@@ -95,13 +95,15 @@ public class PreparationStation : WorkStation {
     }
 
     private void MoveIngredientToShipping(Ingredient ingredient) {
-        Vector3 locPos = ingredient.transform.localPosition + ingredient.transform.parent.localPosition;
-        Vector3 locRot = ingredient.transform.localRotation.eulerAngles + ingredient.transform.parent.localRotation.eulerAngles;
+        if(ingredient != null && ingredient.transform != null) {
+            Vector3 locPos = ingredient.transform.localPosition + ingredient.transform.parent.localPosition;
+            Vector3 locRot = ingredient.transform.localRotation.eulerAngles + ingredient.transform.parent.localRotation.eulerAngles;
 
-        ingredient.transform.parent = _shippedAnchor;
-        ingredient.transform.DOLocalMove(locPos, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
-        ingredient.transform.DOLocalRotate(locRot, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
-        ingredient._OnConveyorBelt = true;
+            ingredient.transform.parent = _shippedAnchor;
+            ingredient.transform.DOLocalMove(locPos, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
+            ingredient.transform.DOLocalRotate(locRot, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
+            ingredient._OnConveyorBelt = true;
+        }
     }
 
     public static int AmtIngredientsPlaced() {
