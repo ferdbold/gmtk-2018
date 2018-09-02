@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4020814864408810}
-  - component: {fileID: 64301361878439046}
+  - component: {fileID: 65399095023483532}
   m_Layer: 0
   m_Name: Ing_Pencil
   m_TagString: Untagged
@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 1894348293284764}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4293748798085058}
   m_Father: {fileID: 4020814864408810}
@@ -140,7 +140,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1595340976405884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4033827752262956}
@@ -217,8 +217,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64301361878439046
-MeshCollider:
+--- !u!65 &65399095023483532
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -226,11 +226,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 379a3c957b9bfba46bfcff0d1d2ba534, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.15, y: 0.25, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114408050157622584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,9 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.9150943, g: 0.74480104, b: 0.10791205, a: 0}
+  _color: {r: 0.90196085, g: 0.5647059, b: 0.16470589, a: 0}
   _colorWeight: 0.5
-  _rugosity: 1
+  _rugosity: 0.35
   _rugosityWeight: 0.5
   _length: 1
   _lengthWeight: 0.8

@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1356683866524626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.622, y: 0, z: -0.485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4152546270139098}
@@ -125,8 +125,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1573968985416058}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 15.5020485, y: 15.5020485, z: 15.5020485}
+  m_LocalPosition: {x: -0.03, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4623725756711948}
   m_RootOrder: 0
@@ -146,7 +146,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 90daf9ebd0a3c6f4e9f83c3d88997198, type: 3}
+  - {fileID: 2100000, guid: 31770a7dfb3136b48af40f8a5d3a313f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +172,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1573968985416058}
-  m_Mesh: {fileID: 4300000, guid: 90daf9ebd0a3c6f4e9f83c3d88997198, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 31770a7dfb3136b48af40f8a5d3a313f, type: 3}
 --- !u!54 &54832746854336644
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -213,13 +213,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.9150943, g: 0.74480104, b: 0.10791205, a: 0}
+  _color: {r: 0.38823533, g: 0.39607847, b: 0.4039216, a: 1}
   _colorWeight: 0.5
-  _solidity: 0.6
-  _solidityWeight: 0.5
-  _length: 1
-  _lengthWeight: 0.8
-  _temperature: 0.5
-  _temperatureWeight: 0.5
+  _rugosity: 1
+  _rugosityWeight: 0.8
+  _length: 0.5
+  _lengthWeight: 0.5
+  _temperature: 0.3
+  _temperatureWeight: 0.2
   _ConveyorSpeed: 0.5
   _OnConveyorBelt: 0

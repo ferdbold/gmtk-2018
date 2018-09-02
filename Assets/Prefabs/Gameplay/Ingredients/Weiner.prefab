@@ -213,13 +213,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.9150943, g: 0.74480104, b: 0.10791205, a: 0}
-  _colorWeight: 0.5
-  _rugosity: 0.4
-  _rugosityWeight: 0.5
-  _length: 1
+  _color: {r: 0.745283, g: 0.24256852, b: 0.45774445, a: 0}
+  _colorWeight: 0.8
+  _rugosity: 0.1
+  _rugosityWeight: 0.6
+  _length: 0.9
   _lengthWeight: 0.8
-  _temperature: 0.5
-  _temperatureWeight: 0.5
+  _temperature: 0.4
+  _temperatureWeight: 0.2
   _ConveyorSpeed: 0.5
   _OnConveyorBelt: 0

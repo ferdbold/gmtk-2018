@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4378944204416164}
   - component: {fileID: 33447160712325700}
   - component: {fileID: 23463548224172204}
-  - component: {fileID: 64045113752773564}
+  - component: {fileID: 65210732956240054}
   m_Layer: 0
   m_Name: Ing_PQ
   m_TagString: Untagged
@@ -84,7 +84,7 @@ Transform:
   m_GameObject: {fileID: 1439694186125684}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 4846369726311564}
   m_RootOrder: 0
@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1655721754165278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4589905263708286}
@@ -188,8 +188,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64045113752773564
-MeshCollider:
+--- !u!65 &65210732956240054
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -197,11 +197,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 819bcd17dd707934f90c7e78caef126d, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.18, z: 0.2}
+  m_Center: {x: 0.00000001117587, y: 0, z: 0.07852241}
 --- !u!114 &114951402070534534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,12 +211,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.9150943, g: 0.74480104, b: 0.10791205, a: 0}
-  _colorWeight: 0.5
-  _solidity: 0.6
-  _solidityWeight: 0.5
-  _length: 1
-  _lengthWeight: 0.8
+  _color: {r: 1, g: 1, b: 1, a: 0}
+  _colorWeight: 0.8
+  _rugosity: 0.5
+  _rugosityWeight: 0.5
+  _length: 0.3
+  _lengthWeight: 0.5
   _temperature: 0.5
   _temperatureWeight: 0.5
   _ConveyorSpeed: 0.5

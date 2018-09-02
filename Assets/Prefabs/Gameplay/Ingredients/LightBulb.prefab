@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4548270386094394}
+  - component: {fileID: 65128360174065816}
   m_Layer: 0
   m_Name: Ing_LightBulb
   m_TagString: Untagged
@@ -116,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1530399169865316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.503, y: 0, z: -0.266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4497172272169448}
@@ -170,8 +171,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1065021424832184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.12321, z: -0.055276}
-  m_LocalScale: {x: 0.6121787, y: 0.6121787, z: 0.6121787}
+  m_LocalPosition: {x: -0, y: 0.101, z: -0.055276}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 4445720433284688}
   - {fileID: 4944286741401192}
@@ -333,6 +334,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65128360174065816
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065021424832184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4, y: 0.4, z: 0.4}
+  m_Center: {x: 0, y: 0, z: 0.08}
 --- !u!114 &114631747160121932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -344,13 +357,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 0.9150943, g: 0.74480104, b: 0.10791205, a: 0}
-  _colorWeight: 0.5
-  _solidity: 0.6
-  _solidityWeight: 0.5
-  _length: 1
+  _color: {r: 1, g: 1, b: 1, a: 0}
+  _colorWeight: 0.8
+  _rugosity: 0
+  _rugosityWeight: 0.8
+  _length: 0.2
   _lengthWeight: 0.8
   _temperature: 0.5
-  _temperatureWeight: 0.5
+  _temperatureWeight: 0.129
   _ConveyorSpeed: 0.5
   _OnConveyorBelt: 0
