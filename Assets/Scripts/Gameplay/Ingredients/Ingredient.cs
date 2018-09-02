@@ -43,7 +43,7 @@ public class Ingredient : MonoBehaviour {
     private MeshRenderer _meshRenderer;
 
     private float _currentLenghtChange = 0f;
-    private float _lenghtChangeMax = 0.25f;
+    private float _lenghtChangeMax = 0.35f;
 
     private float _currentRugosityChange = 0f;
     private float _rugosityChangeMax = 0.4f;

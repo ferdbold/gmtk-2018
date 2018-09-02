@@ -89,4 +89,13 @@ public class WorkStationManager : BaseManager<WorkStationManager> {
     }
 
     #endregion
+
+    public static bool IsStationSelected(WorkStation station) {
+        if(Instance._selectedStation != null && 
+           Instance._selectedStation == station) {
+            return true;
+        }
+
+        return false;
+    }
 }
