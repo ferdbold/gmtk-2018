@@ -192,6 +192,7 @@ public class AudioManager : BaseManager<AudioManager>
         selectedAudioSource.volume = 1;
         selectedAudioSource.pitch = pitch;
         selectedAudioSource.panStereo = stereoPan;
+        selectedAudioSource.outputAudioMixerGroup = GameplayMusicMasterMixer;
 
         if (mixerGroup != null) selectedAudioSource.outputAudioMixerGroup = mixerGroup;
         selectedAudioSource.PlayOneShot(clip);

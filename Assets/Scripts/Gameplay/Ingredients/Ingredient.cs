@@ -40,7 +40,7 @@ public class Ingredient : MonoBehaviour {
     public bool _CanBeGrabbed = true;
 
     private Transform _visuals;
-    private MeshRenderer _meshRenderer;
+    private MeshRenderer[] _meshRenderer;
 
     private float _currentLenghtChange = 0f;
     private float _lenghtChangeMax = 0.35f;
@@ -55,7 +55,7 @@ public class Ingredient : MonoBehaviour {
     private bool _colorChanged = false;
 
     private float _maxMetallic = 0.5f;
-    private float _maxGloss = 0.5f;
+    private float _maxGloss = 0.75f;
 
 
     #endregion // ATTRIBUTES
@@ -77,6 +77,9 @@ public class Ingredient : MonoBehaviour {
     {
         get { return _colorChanged ? _currentColorOverride : _color; }
     }
+
+    private Texture[] _albedo;
+    private Texture[] _metallics;
 
     #endregion
 
@@ -102,7 +105,13 @@ public class Ingredient : MonoBehaviour {
             t.gameObject.layer = 9; //Ingredient layer
 
         _visuals = transform.Find("Visuals");
-        _meshRenderer = GetComponentInChildren<MeshRenderer>();
+        _meshRenderer = GetComponentsInChildren<MeshRenderer>();
+        _albedo = new Texture[_meshRenderer.Length];
+        _metallics = new Texture[_meshRenderer.Length];
+        for (int i =0; i < _meshRenderer.Length; ++i) {
+            _albedo[i] = _meshRenderer[i].material.GetTexture("_MainTex");
+            _metallics[i] = _meshRenderer[i].material.GetTexture("_MetallicGlossMap");
+        }
 
         ResetColor();
         ResetHeat();
@@ -174,12 +183,24 @@ public class Ingredient : MonoBehaviour {
         _colorChanged = true;
         _currentColorOverride = color;
 
-        _meshRenderer.material.color = _currentColorOverride;
+        for (int i = 0; i < _meshRenderer.Length; ++i) {
+            _meshRenderer[i].material.color = _currentColorOverride;
+            _meshRenderer[i].material.SetTexture("_MainTex", null);
+            _meshRenderer[i].material.SetTexture("_MetallicGlossMap", null);
+            _meshRenderer[i].material.DisableKeyword("_METALLICGLOSSMAP");
+        }
+
     }
     public void ResetColor() {
         _colorChanged = false;
 
-        _meshRenderer.material.color = _color;
+        for (int i = 0; i < _meshRenderer.Length; ++i) {
+            _meshRenderer[i].material.color = _color;
+            _meshRenderer[i].material.SetTexture("_MainTex", _albedo[i]);
+            _meshRenderer[i].material.SetTexture("_MetallicGlossMap", _metallics[i]);
+            _meshRenderer[i].material.EnableKeyword("_METALLICGLOSSMAP");
+
+        }
     }
 
     public void AddHeat(float change) {
@@ -190,8 +211,13 @@ public class Ingredient : MonoBehaviour {
         _currentRugosityChange = Mathf.Clamp(_currentRugosityChange, -_rugosityChangeMax, _rugosityChangeMax);
 
         //TODO VISUAL BURN
-        _meshRenderer.material.SetFloat("_Metallic", _maxMetallic - (Rugosity * _maxMetallic));
-        _meshRenderer.material.SetFloat("_Glossiness", _maxGloss - (Rugosity * _maxGloss));
+        for (int i = 0; i < _meshRenderer.Length; ++i) {
+            _meshRenderer[i].material.SetFloat("_Metallic", _maxMetallic - (Rugosity * _maxMetallic));
+            _meshRenderer[i].material.SetFloat("_Glossiness", _maxGloss - (Rugosity * _maxGloss));        
+        }
+
+        Debug.Log("Rugosity " + Rugosity);
+
     }
     public void ResetHeat() {
         _currentTemperatureChange = 0f;
@@ -202,14 +228,19 @@ public class Ingredient : MonoBehaviour {
         _currentRugosityChange -= change;
         _currentRugosityChange = Mathf.Clamp(_currentRugosityChange, -_rugosityChangeMax, _rugosityChangeMax);
 
-        _meshRenderer.material.SetFloat("_Metallic", _maxMetallic - (Rugosity * _maxMetallic));
-        _meshRenderer.material.SetFloat("_Glossiness", _maxGloss - (Rugosity * _maxGloss));
+        for (int i = 0; i < _meshRenderer.Length; ++i) {
+            _meshRenderer[i].material.SetFloat("_Metallic", _maxMetallic - (Rugosity * _maxMetallic));
+            _meshRenderer[i].material.SetFloat("_Glossiness", _maxGloss - (Rugosity * _maxGloss));
+        }
+        Debug.Log("Rugosity " + Rugosity);
     }
     public void ResetGloss() {
         _currentRugosityChange = 0f;
 
-        _meshRenderer.material.SetFloat("_Metallic", _maxMetallic - (Rugosity * _maxMetallic));
-        _meshRenderer.material.SetFloat("_Glossiness", _maxGloss - (Rugosity * _maxGloss));
+        for (int i = 0; i < _meshRenderer.Length; ++i) {
+            _meshRenderer[i].material.SetFloat("_Metallic", _maxMetallic - (Rugosity * _maxMetallic));
+            _meshRenderer[i].material.SetFloat("_Glossiness", _maxGloss - (Rugosity * _maxGloss));
+        }
     }
 
     #endregion
