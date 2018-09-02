@@ -185,7 +185,7 @@ public class Ingredient : MonoBehaviour {
         _currentRugosityChange = Mathf.Clamp(_currentRugosityChange, -_rugosityChangeMax, _rugosityChangeMax);
 
         //TODO VISUAL BURN
-        _meshRenderer.material.SetFloat("_Metallic", 1f - Rugosity);
+        _meshRenderer.material.SetFloat("_Metallic", 0.8f - Rugosity);
         _meshRenderer.material.SetFloat("_Glossiness", 1f - Rugosity);
     }
     public void ResetHeat() {
@@ -197,13 +197,13 @@ public class Ingredient : MonoBehaviour {
         _currentRugosityChange -= change;
         _currentRugosityChange = Mathf.Clamp(_currentRugosityChange, -_rugosityChangeMax, _rugosityChangeMax);
 
-        _meshRenderer.material.SetFloat("_Metallic", 1f-Rugosity);
+        _meshRenderer.material.SetFloat("_Metallic", 0.8f-Rugosity);
         _meshRenderer.material.SetFloat("_Glossiness", 1f-Rugosity);
     }
     public void ResetGloss() {
         _currentRugosityChange = 0f;
 
-        _meshRenderer.material.SetFloat("_Metallic", 1f - Rugosity);
+        _meshRenderer.material.SetFloat("_Metallic", 0.8f - Rugosity);
         _meshRenderer.material.SetFloat("_Glossiness", 1f - Rugosity);
     }
 
