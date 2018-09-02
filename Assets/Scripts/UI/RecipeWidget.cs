@@ -24,17 +24,18 @@ public class RecipeWidget : MonoBehaviour {
         public float _scoreThreshold;
     }
 
-    public void Start()
+    private void OnEnable()
     {
+        PreparationStation.OnPreparationStationUsed += OnPreparationStationUsed;
         ObjectiveManager.OnRecipeChanged += OnRecipeChanged;
         ObjectiveManager.OnRecipeShipped += OnRecipeShipped;
     }
 
-    private void OnEnable() {
-        PreparationStation.OnPreparationStationUsed += OnPreparationStationUsed;
-    }
-    private void OnDisable() {
+    private void OnDisable()
+    {
         PreparationStation.OnPreparationStationUsed -= OnPreparationStationUsed;
+        ObjectiveManager.OnRecipeChanged -= OnRecipeChanged;
+        ObjectiveManager.OnRecipeShipped -= OnRecipeShipped;
     }
 
     private void OnPreparationStationUsed() {
@@ -47,7 +48,6 @@ public class RecipeWidget : MonoBehaviour {
                 _IngredientWidgets[i].RemoveEmphasis();
         }
     }
-
 
     public void OnRecipeChanged(Recipes.SRecipe newRecipe)
     {

@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -66,7 +64,7 @@ public class GameManager : Singleton<GameManager>
         Call_LateUpdateManager(Time.deltaTime);
     }
 
-    private void EndGame()
+    private void EndGame_Internal()
     {
         Call_StopGame();
         Call_UnregisterCallbacks();
@@ -159,6 +157,12 @@ public class GameManager : Singleton<GameManager>
     public static void StartGame()
     {
         GameManager.Instance.Call_StartGame();
+    }
+
+    public static void EndGame()
+    {
+        GameManager.Instance.EndGame_Internal();
+        SceneManager.LoadScene("Main");
     }
 
     public static void AddFreeze(GameFreezeMask.FreezeContext context)

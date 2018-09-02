@@ -9,10 +9,16 @@ public class HUDWidget : MonoBehaviour {
 
     #endregion // ATTRIBUTES
 
-    public void Start()
+    public void OnEnable()
     {
         ObjectiveManager.OnGameStarted += OnGameStarted;
         ObjectiveManager.OnGameEnded += OnGameEnded;
+    }
+
+    public void OnDisable()
+    {
+        ObjectiveManager.OnGameStarted -= OnGameStarted;
+        ObjectiveManager.OnGameEnded -= OnGameEnded;
     }
 
     public void OnGameStarted()

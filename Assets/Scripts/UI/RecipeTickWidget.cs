@@ -17,9 +17,19 @@ public class RecipeTickWidget : MonoBehaviour {
 
     public void Start()
     {
+        OnRecipeInterlude();
+    }
+
+    public void OnEnable()
+    {
         ObjectiveManager.OnRecipeChanged += OnRecipeChanged;
         ObjectiveManager.OnRecipeInterlude += OnRecipeInterlude;
-        OnRecipeInterlude();
+    }
+
+    public void OnDisable()
+    {
+        ObjectiveManager.OnRecipeChanged -= OnRecipeChanged;
+        ObjectiveManager.OnRecipeInterlude -= OnRecipeInterlude;
     }
 
     public void Update()

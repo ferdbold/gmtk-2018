@@ -9,9 +9,14 @@ public class MainMenuWidget : MonoBehaviour {
 
     #endregion
 
-    public void Start()
+    public void OnEnable()
     {
         ObjectiveManager.OnGameStarted += OnGameStarted;
+    }
+
+    public void OnDisable()
+    {
+        ObjectiveManager.OnGameStarted -= OnGameStarted;
     }
 
     public void RequestStartGame()
