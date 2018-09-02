@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Score: 0
+  _GameDuration: 180
+  _RemainingGameTime: 0
   _RecipeTickInterval: 15
   _RecipeTickRemaining: 0
   _RecipeInterludeInterval: 5

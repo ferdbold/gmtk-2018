@@ -8,6 +8,9 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
     public int _Score;
 
+    public float _GameDuration;
+    public float _RemainingGameTime;
+
     public float _RecipeTickInterval;
     public float _RecipeTickRemaining;
 
@@ -31,14 +34,27 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
     public static event Action<SRecipeScore> OnRecipeShipped;
     public static event Action OnRecipeInterlude;
 
+    private bool _firstRecipeReceived = false;
+
     public override void OnStartGame()
     {
+        _RemainingGameTime = _GameDuration;
         _RecipeInterludeRemaining = _RecipeInterludeInterval;
         _RecipeTickRemaining = _RecipeTickInterval;
     }
 
     public override void OnUpdateManager(float deltaTime)
     {
+        if (_firstRecipeReceived)
+        {
+            _RemainingGameTime -= deltaTime;
+            
+            if (_RemainingGameTime < 0f)
+            {
+                GameEnd();
+            }
+        }
+
         if (_RecipeInterludeRemaining > 0)
         {
             _RecipeInterludeRemaining -= deltaTime;
@@ -46,6 +62,7 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
             if (_RecipeInterludeRemaining <= 0)
             {
                 GenerateNewRecipe();
+                _firstRecipeReceived = true;
             }
         }
         else
@@ -113,5 +130,11 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
         _RecipeTickRemaining = 0f;
 
         if (OnRecipeShipped != null) OnRecipeShipped(recipeScore);
+    }
+
+    public void GameEnd()
+    {
+        // TODO
+        Debug.Log("Game Over");
     }
 }
