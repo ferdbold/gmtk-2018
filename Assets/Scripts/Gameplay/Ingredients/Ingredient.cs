@@ -181,7 +181,12 @@ public class Ingredient : MonoBehaviour {
         _currentTemperatureChange += change;
         _currentTemperatureChange = Mathf.Clamp(_currentTemperatureChange, -_temperatureChangeMax, _temperatureChangeMax);
 
-        //TODO VISUAL
+        _currentRugosityChange += change;
+        _currentRugosityChange = Mathf.Clamp(_currentRugosityChange, -_rugosityChangeMax, _rugosityChangeMax);
+
+        //TODO VISUAL BURN
+        _meshRenderer.material.SetFloat("_Metallic", 1f - Rugosity);
+        _meshRenderer.material.SetFloat("_Glossiness", 1f - Rugosity);
     }
     public void ResetHeat() {
         _currentTemperatureChange = 0f;
@@ -192,7 +197,6 @@ public class Ingredient : MonoBehaviour {
         _currentRugosityChange -= change;
         _currentRugosityChange = Mathf.Clamp(_currentRugosityChange, -_rugosityChangeMax, _rugosityChangeMax);
 
-        //TODO VISUAL
         _meshRenderer.material.SetFloat("_Metallic", 1f-Rugosity);
         _meshRenderer.material.SetFloat("_Glossiness", 1f-Rugosity);
     }
