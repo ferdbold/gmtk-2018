@@ -146,7 +146,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: ee454592070f3d749afdfa074adb7032, type: 3}
+  - {fileID: 2100000, guid: d60ebe307572c4c42af15480ef7bb82b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bafc5271c777d544985844f66ee1f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 1, g: 1, b: 1, a: 0}
+  _color: {r: 0.564765, g: 0.5849056, b: 0.38349944, a: 0}
   _colorWeight: 0.5
   _rugosity: 0.7
   _rugosityWeight: 0.5
@@ -219,5 +219,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.007753373
-  m_Center: {x: 0, y: 0, z: 0.0077525424}
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0.12}
