@@ -2,18 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class OvenStation : WorkStation {
 
     public static event Action OnOvenStationUsed;
 
+    [SerializeField] private Light _ovenLight;
     [SerializeField] private float _heatChangePerSecond = 0.5f;
+
     private bool _stationInUse = false;
     private int _animatorUsingHash;
+    private float _defaultLightIntensity;
 
     public override void Setup() {
         base.Setup();
 
+        _defaultLightIntensity = _ovenLight.intensity;
         _animatorUsingHash = Animator.StringToHash("using");
     }
 
@@ -40,12 +45,14 @@ public class OvenStation : WorkStation {
 
     private IEnumerator ChangeHeatTimer(Ingredient ingredient) {
         _animator.SetBool(_animatorUsingHash, true);
+        _ovenLight.DOIntensity(_defaultLightIntensity * 3f, 0.5f);
 
         while (_stationInUse) {
             yield return new WaitForSeconds(0.05f);
             ingredient.AddHeat(_heatChangePerSecond * 0.05f);
         }
 
+        _ovenLight.DOIntensity(_defaultLightIntensity, 0.5f);
         _animator.SetBool(_animatorUsingHash, false);
     }
 }
