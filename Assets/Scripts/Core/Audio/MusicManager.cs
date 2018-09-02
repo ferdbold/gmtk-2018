@@ -19,22 +19,35 @@ public class MusicManager : MonoBehaviour
     public float _targetVolumeGame = 1f;
     public float _targetVolumeEnd = 1f;
 
+    private bool gameEnded = false;
+
     private void OnEnable()
     {
         ObjectiveManager.OnGameStarted += OnGameStarted;
         ObjectiveManager.OnGameEnded += OnGameEnded;
+        RadioActivation.OnRadioActivated += OnRadioActivated;
     }
     private void OnDisable()
     {
         ObjectiveManager.OnGameStarted -= OnGameStarted;
         ObjectiveManager.OnGameEnded -= OnGameEnded;
+        RadioActivation.OnRadioActivated -= OnRadioActivated;
     }
 
     private void OnGameStarted() {
         PlayGame();
     }
     private void OnGameEnded() {
+        gameEnded = true;
         EndGame();
+    }
+    private void OnRadioActivated(bool enabled) {
+        if (gameEnded) return;
+
+        if(enabled)
+            sourceGame.DOFade(_targetVolumeGame * 0.25f, 0.5f);
+        else
+            sourceGame.DOFade(_targetVolumeGame * 1f, 0.5f);
     }
 
 
@@ -55,16 +68,16 @@ public class MusicManager : MonoBehaviour
     }
     private void PlayGame() {
         sourceGame.clip = GameSong;
-        sourceGame.DOFade(_targetVolumeGame, 1.5f);
+        sourceGame.DOFade(_targetVolumeGame, 2.5f);
         sourceGame.Play();
 
-        sourceMenu.DOFade(0f, 1f);
+        sourceMenu.DOFade(0f, 2f);
     }
     private void EndGame() {
         sourceEnd.clip = EndSong;
         sourceEnd.Play();
-        sourceEnd.DOFade(_targetVolumeEnd, 1.5f);
+        sourceEnd.DOFade(_targetVolumeEnd, 2.5f);
 
-        sourceGame.DOFade(0f, 1f);
+        sourceGame.DOFade(0f, 2f);
     }
 }

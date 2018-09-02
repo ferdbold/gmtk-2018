@@ -3509,7 +3509,7 @@ MonoBehaviour:
   sourceGame: {fileID: 82178563866365754}
   sourceEnd: {fileID: 82143268219565792}
   _targetVolumeMenu: 1
-  _targetVolumeGame: 0.6
+  _targetVolumeGame: 0.5
   _targetVolumeEnd: 1
 --- !u!114 &114619115393842746
 MonoBehaviour:
