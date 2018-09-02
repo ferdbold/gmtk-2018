@@ -14,7 +14,7 @@ public class PreparationStation : WorkStation {
     public Transform _shippedAnchor;
     public Transform _shipBell;
 
-    private int _index = 1;
+    private static int _index = 1;
     private GameObject _plateInstance = null;
 
     #endregion // ATTRIBUTES
@@ -69,14 +69,14 @@ public class PreparationStation : WorkStation {
         ingredient._CanBeGrabbed = false;
         _LaborOfLove.Add(ingredient);
 
-        if (OnPreparationStationUsed != null) OnPreparationStationUsed();
-
         ingredient.transform.parent = _preppedAnchors[_index];
         ingredient.transform.DOLocalMove(Vector3.zero, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
         ingredient.transform.DOLocalRotate(Quaternion.identity.eulerAngles, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
 
         ++_index;
         _index = Mathf.Clamp(_index, 1, _preppedAnchors.Count - 1);
+
+        if (OnPreparationStationUsed != null) OnPreparationStationUsed();
     }
 
     public void OnRecipeShipped(ObjectiveManager.SRecipeScore recipeScore)
@@ -102,5 +102,9 @@ public class PreparationStation : WorkStation {
         ingredient.transform.DOLocalMove(locPos, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
         ingredient.transform.DOLocalRotate(locRot, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
         ingredient._OnConveyorBelt = true;
+    }
+
+    public static int AmtIngredientsPlaced() {
+        return _index - 1;
     }
 }

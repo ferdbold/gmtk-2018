@@ -51,4 +51,13 @@ public class IngredientWidget : MonoBehaviour {
             _Grade.DOFade(1f, 0.5f);
         }
     }
+
+    public void SetEmphasis() {
+        if (_Ingredient != null)
+            _Ingredient.transform.localScale = Vector3.one * 2.0f;
+    }
+    public void RemoveEmphasis() {
+        if (_Ingredient != null)
+            _Ingredient.transform.localScale = Vector3.one * 0.4f;
+    }
 }

@@ -43,13 +43,21 @@ public class InventoryManager : BaseManager<InventoryManager> {
     #region GAMEPLAY
 
     private void HandleMouseInput() {
-        if (_grabbedIngredient == null && Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0)) {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100.0f, _objectLayerMask)) {
                 Ingredient ing = hit.collider.gameObject.GetComponentInParent<Ingredient>();
-                if(ing._CanBeGrabbed)
+                if(ing._CanBeGrabbed && ing != _grabbedIngredient)
                 {
+                    if(_grabbedIngredient != null)
+                    {
+                        _grabbedIngredient.transform.parent = null;
+                        _grabbedIngredient.transform.DOMove(ing.transform.position, 0.5f).SetEase(_objectAnimationCurve);
+                        _grabbedIngredient.transform.DORotate(ing.transform.rotation.eulerAngles, 0.5f).SetEase(_objectAnimationCurve);
+                        _grabbedIngredient._OnConveyorBelt = true;
+                    }                 
+
                     _grabbedIngredient = ing;
                     AttachObjectToInventory();
                     if (OnObjectGrabbed != null) OnObjectGrabbed();

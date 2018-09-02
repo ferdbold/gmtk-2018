@@ -30,6 +30,25 @@ public class RecipeWidget : MonoBehaviour {
         ObjectiveManager.OnRecipeShipped += OnRecipeShipped;
     }
 
+    private void OnEnable() {
+        PreparationStation.OnPreparationStationUsed += OnPreparationStationUsed;
+    }
+    private void OnDisable() {
+        PreparationStation.OnPreparationStationUsed -= OnPreparationStationUsed;
+    }
+
+    private void OnPreparationStationUsed() {
+        int amtIngredients = PreparationStation.AmtIngredientsPlaced();
+
+        for (int i = 0; i < _IngredientWidgets.Count; i++) {
+            if (i == amtIngredients)
+                _IngredientWidgets[i].SetEmphasis();
+            else
+                _IngredientWidgets[i].RemoveEmphasis();
+        }
+    }
+
+
     public void OnRecipeChanged(Recipes.SRecipe newRecipe)
     {
         int recipeCount = newRecipe._Ingredients.Count;
@@ -37,6 +56,9 @@ public class RecipeWidget : MonoBehaviour {
         {
             _IngredientWidgets[i].SetIngredient((recipeCount > i) ? newRecipe._Ingredients[i] : null);
             _IngredientWidgets[i].gameObject.SetActive(recipeCount > i);
+
+            if (i == 0) _IngredientWidgets[i].SetEmphasis();
+            else _IngredientWidgets[i].RemoveEmphasis();
         }
 
         _RecipeName.text = newRecipe._Name;

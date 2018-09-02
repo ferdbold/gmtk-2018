@@ -66,14 +66,14 @@ public class ScreenShakeManager : BaseManager<ScreenShakeManager>
         ShapeStation.OnShapeStationUsed += OnShapeStationUsed;
         CleanStation.OnCleanStationUsed += OnCleanStationUsed;
         ColorStation.OnColorStationUsed += OnColorStationUsed;
-        
+        ObjectiveManager.OnRecipeShipped += OnRecipeShipped;
     }
 
     public override void OnUnregisterCallbacks() {
         ShapeStation.OnShapeStationUsed -= OnShapeStationUsed;
         CleanStation.OnCleanStationUsed -= OnCleanStationUsed;
-        ColorStation.OnColorStationUsed += OnColorStationUsed;
-
+        ColorStation.OnColorStationUsed -= OnColorStationUsed;
+        ObjectiveManager.OnRecipeShipped -= OnRecipeShipped;
     }
 
     #region CALLBACKS
@@ -85,6 +85,9 @@ public class ScreenShakeManager : BaseManager<ScreenShakeManager>
         AddShake(eScreenShakeIntensity.eVeryLow, eScreenShakeDuration.eSmall, true);
     }
     private void OnColorStationUsed() {
+        AddShake(eScreenShakeIntensity.eVeryLow, eScreenShakeDuration.eSmall, true);
+    }
+    private void OnRecipeShipped(ObjectiveManager.SRecipeScore recipe) {
         AddShake(eScreenShakeIntensity.eVeryLow, eScreenShakeDuration.eSmall, true);
     }
 
