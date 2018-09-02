@@ -54,6 +54,8 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
             if (_RecipeTickRemaining <= 0)
             {
+                ShipRecipe();
+
                 _RecipeInterludeRemaining = _RecipeInterludeInterval;
                 _RecipeTickRemaining = _RecipeTickInterval;
 
