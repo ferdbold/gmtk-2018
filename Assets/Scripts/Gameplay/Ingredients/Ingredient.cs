@@ -37,6 +37,7 @@ public class Ingredient : MonoBehaviour {
 
     public float _ConveyorSpeed;
     [HideInInspector] public bool _OnConveyorBelt = false;
+    public bool _CanBeGrabbed = true;
 
     private Transform _visuals;
     private MeshRenderer _meshRenderer;
@@ -52,6 +53,10 @@ public class Ingredient : MonoBehaviour {
 
     private Color _currentColorOverride = Color.white;
     private bool _colorChanged = false;
+
+    private float _maxMetallic = 0.5f;
+    private float _maxGloss = 0.5f;
+
 
     #endregion // ATTRIBUTES
 
@@ -185,8 +190,8 @@ public class Ingredient : MonoBehaviour {
         _currentRugosityChange = Mathf.Clamp(_currentRugosityChange, -_rugosityChangeMax, _rugosityChangeMax);
 
         //TODO VISUAL BURN
-        _meshRenderer.material.SetFloat("_Metallic", 0.8f - Rugosity);
-        _meshRenderer.material.SetFloat("_Glossiness", 1f - Rugosity);
+        _meshRenderer.material.SetFloat("_Metallic", _maxMetallic - (Rugosity * _maxMetallic));
+        _meshRenderer.material.SetFloat("_Glossiness", _maxGloss - (Rugosity * _maxGloss));
     }
     public void ResetHeat() {
         _currentTemperatureChange = 0f;
@@ -197,14 +202,14 @@ public class Ingredient : MonoBehaviour {
         _currentRugosityChange -= change;
         _currentRugosityChange = Mathf.Clamp(_currentRugosityChange, -_rugosityChangeMax, _rugosityChangeMax);
 
-        _meshRenderer.material.SetFloat("_Metallic", 0.8f-Rugosity);
-        _meshRenderer.material.SetFloat("_Glossiness", 1f-Rugosity);
+        _meshRenderer.material.SetFloat("_Metallic", _maxMetallic - (Rugosity * _maxMetallic));
+        _meshRenderer.material.SetFloat("_Glossiness", _maxGloss - (Rugosity * _maxGloss));
     }
     public void ResetGloss() {
         _currentRugosityChange = 0f;
 
-        _meshRenderer.material.SetFloat("_Metallic", 0.8f - Rugosity);
-        _meshRenderer.material.SetFloat("_Glossiness", 1f - Rugosity);
+        _meshRenderer.material.SetFloat("_Metallic", _maxMetallic - (Rugosity * _maxMetallic));
+        _meshRenderer.material.SetFloat("_Glossiness", _maxGloss - (Rugosity * _maxGloss));
     }
 
     #endregion

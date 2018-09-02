@@ -48,9 +48,12 @@ public class InventoryManager : BaseManager<InventoryManager> {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100.0f, _objectLayerMask)) {
                 Ingredient ing = hit.collider.gameObject.GetComponentInParent<Ingredient>();
-                _grabbedIngredient = ing;
-                AttachObjectToInventory();
-                if (OnObjectGrabbed != null) OnObjectGrabbed();
+                if(ing._CanBeGrabbed)
+                {
+                    _grabbedIngredient = ing;
+                    AttachObjectToInventory();
+                    if (OnObjectGrabbed != null) OnObjectGrabbed();
+                }
             }
         }
     }

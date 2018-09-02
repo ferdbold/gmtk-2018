@@ -8,10 +8,14 @@ public class PreparationStation : WorkStation {
     #region ATTRIBUTES
 
     [SerializeField] private LayerMask _shipBellLayer;
+    [SerializeField] private GameObject _platePrefab;
 
-    public Transform _preppedAnchor;
+    public List<Transform> _preppedAnchors;
     public Transform _shippedAnchor;
     public Transform _shipBell;
+
+    private int _index = 1;
+    private GameObject _plateInstance = null;
 
     #endregion // ATTRIBUTES
 
@@ -19,9 +23,17 @@ public class PreparationStation : WorkStation {
 
     public static List<Ingredient> _LaborOfLove = new List<Ingredient>();
 
-    public void Start()
-    {
+    public void OnEnable() {
         ObjectiveManager.OnRecipeShipped += OnRecipeShipped;
+    }
+    public void OnDisable() {
+        ObjectiveManager.OnRecipeShipped -= OnRecipeShipped;
+    }
+
+    public override void Setup() {
+        base.Setup();
+
+        _plateInstance = (GameObject)Instantiate(_platePrefab, _preppedAnchors[0]);
     }
 
     public override void UpdateStation(float deltaTime)
@@ -50,26 +62,41 @@ public class PreparationStation : WorkStation {
     public override void UseStation(Ingredient ingredient) {
         base.UseStation(ingredient);
 
+        ingredient._CanBeGrabbed = false;
         _LaborOfLove.Add(ingredient);
 
         if (OnPreparationStationUsed != null) OnPreparationStationUsed();
 
-        ingredient.transform.parent = _preppedAnchor;
+        ingredient.transform.parent = _preppedAnchors[_index];
         ingredient.transform.DOLocalMove(Vector3.zero, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
         ingredient.transform.DOLocalRotate(Quaternion.identity.eulerAngles, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
+
+        ++_index;
+        _index = Mathf.Clamp(_index, 1, _preppedAnchors.Count - 1);
     }
 
     public void OnRecipeShipped(ObjectiveManager.SRecipeScore recipeScore)
     {
+        _index = 1;
         // Ship animation
-        foreach(Ingredient ingredient in _LaborOfLove)
+        foreach (Ingredient ingredient in _LaborOfLove)
         {
-            ingredient.transform.parent = _shippedAnchor;
-            ingredient.transform.DOLocalMove(Vector3.zero, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
-            ingredient.transform.DOLocalRotate(Quaternion.identity.eulerAngles, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
-            ingredient._OnConveyorBelt = true;
+            MoveIngredientToShipping(ingredient);
         }
+        MoveIngredientToShipping(_plateInstance.GetComponent<Ingredient>());
 
         _LaborOfLove.Clear();
+
+        _plateInstance = (GameObject)Instantiate(_platePrefab, _preppedAnchors[0]);
+    }
+
+    private void MoveIngredientToShipping(Ingredient ingredient) {
+        Vector3 locPos = ingredient.transform.localPosition + ingredient.transform.parent.localPosition;
+        Vector3 locRot = ingredient.transform.localRotation.eulerAngles + ingredient.transform.parent.localRotation.eulerAngles;
+
+        ingredient.transform.parent = _shippedAnchor;
+        ingredient.transform.DOLocalMove(locPos, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
+        ingredient.transform.DOLocalRotate(locRot, InventoryManager.Instance._objectAnimationTime).SetEase(InventoryManager.Instance._objectAnimationCurve);
+        ingredient._OnConveyorBelt = true;
     }
 }
