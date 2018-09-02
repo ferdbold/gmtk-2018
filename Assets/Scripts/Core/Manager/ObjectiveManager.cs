@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
@@ -57,7 +56,7 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
         // Restart game
         if (_gameEnded && Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("Main");
+            GameManager.EndGame();
         }
 
         if (!_gameStarted || _gameEnded)
