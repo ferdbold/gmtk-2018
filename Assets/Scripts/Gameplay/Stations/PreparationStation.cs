@@ -31,13 +31,17 @@ public class PreparationStation : WorkStation {
         // Ship bell input
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 100.0f, _shipBellLayer))
+            // Prevent it if we're already in an interlude
+            if (!ObjectiveManager.Instance.IsInterlude())
             {
-                if (hit.collider.transform.Equals(_shipBell))
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit, 100.0f, _shipBellLayer))
                 {
-                    ObjectiveManager.Instance.ShipRecipe();
+                    if (hit.collider.transform.Equals(_shipBell))
+                    {
+                        ObjectiveManager.Instance.ShipRecipe();
+                    }
                 }
             }
         }

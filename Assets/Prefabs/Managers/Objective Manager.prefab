@@ -54,6 +54,8 @@ MonoBehaviour:
   _Score: 0
   _RecipeTickInterval: 15
   _RecipeTickRemaining: 0
+  _RecipeInterludeInterval: 5
+  _RecipeInterludeRemaining: 0
   _CurrentRecipe:
     _Name: 
     _Ingredients: []

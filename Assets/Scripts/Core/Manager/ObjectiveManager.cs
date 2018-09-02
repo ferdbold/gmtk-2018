@@ -11,6 +11,9 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
     public float _RecipeTickInterval;
     public float _RecipeTickRemaining;
 
+    public float _RecipeInterludeInterval;
+    public float _RecipeInterludeRemaining;
+
     public class SRecipeScore
     {
         public List<Ingredient.SComparisonScore> _IngredientScores = new List<Ingredient.SComparisonScore>();
@@ -26,23 +29,40 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
     public static event Action<Recipes.SRecipe> OnRecipeChanged;
     public static event Action<SRecipeScore> OnRecipeShipped;
+    public static event Action OnRecipeInterlude;
 
     public override void OnStartGame()
     {
+        _RecipeInterludeRemaining = _RecipeInterludeInterval;
         _RecipeTickRemaining = _RecipeTickInterval;
-        GenerateNewRecipe();
     }
 
     public override void OnUpdateManager(float deltaTime)
     {
-        _RecipeTickRemaining -= deltaTime;
-
-        if (_RecipeTickRemaining < 0)
+        if (_RecipeInterludeRemaining > 0)
         {
-            GenerateNewRecipe();
-            _RecipeTickRemaining = _RecipeTickInterval;
+            _RecipeInterludeRemaining -= deltaTime;
+
+            if (_RecipeInterludeRemaining <= 0)
+            {
+                GenerateNewRecipe();
+            }
+        }
+        else
+        {
+            _RecipeTickRemaining -= deltaTime;
+
+            if (_RecipeTickRemaining <= 0)
+            {
+                _RecipeInterludeRemaining = _RecipeInterludeInterval;
+                _RecipeTickRemaining = _RecipeTickInterval;
+
+                if (OnRecipeInterlude != null) OnRecipeInterlude();
+            }
         }
     }
+
+    public bool IsInterlude() { return _RecipeInterludeRemaining > 0; }
 
     private void GenerateNewRecipe()
     {
@@ -88,6 +108,7 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
         }
 
         _Score += (int)(recipeScore._GlobalScore * 100);
+        _RecipeTickRemaining = 0f;
 
         if (OnRecipeShipped != null) OnRecipeShipped(recipeScore);
     }
