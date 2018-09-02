@@ -2,9 +2,9 @@
 
 public class IngredientKiller : MonoBehaviour {
 
-    void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        Ingredient ingredient = other.GetComponent<Ingredient>();
+        Ingredient ingredient = other.GetComponentInParent<Ingredient>();
         if (ingredient != null && ingredient._OnConveyorBelt)
         {
             GameObject.Destroy(other.gameObject);

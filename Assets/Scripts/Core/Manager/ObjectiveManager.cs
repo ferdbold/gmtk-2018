@@ -35,6 +35,7 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
     public static event Action OnRecipeInterlude;
 
     private bool _firstRecipeReceived = false;
+    private bool _alreadyShipped = false;
 
     public override void OnStartGame()
     {
@@ -71,7 +72,11 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
             if (_RecipeTickRemaining <= 0)
             {
-                ShipRecipe();
+                if (!_alreadyShipped)
+                {
+                    ShipRecipe();
+                }
+                _alreadyShipped = false;
 
                 _RecipeInterludeRemaining = _RecipeInterludeInterval;
                 _RecipeTickRemaining = _RecipeTickInterval;
@@ -107,8 +112,6 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
     public void ShipRecipe()
     {
-        Debug.Log("Shipping recipe");
-
         SRecipeScore recipeScore = new SRecipeScore();
 
         int ingredientCount = _CurrentRecipe._Ingredients.Count;
@@ -128,8 +131,24 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
         _Score += (int)(recipeScore._GlobalScore * 100);
         _RecipeTickRemaining = 0f;
+        _alreadyShipped = true;
 
         if (OnRecipeShipped != null) OnRecipeShipped(recipeScore);
+
+        // Debug string
+        string debugScore = "Score: " + recipeScore._GlobalScore * 100 + "\n";
+        for (int i = 0; i < recipeScore._IngredientScores.Count; ++i)
+        {
+            var ingredient = recipeScore._IngredientScores[i];
+            debugScore += "Ingredient " + (i+1) + ": " + ingredient._globalScore * 100
+                + "(C:" + ingredient._colorScore * 100
+                + "  S:" + ingredient._solidityScore * 100
+                + "  L:" + ingredient._lengthScore * 100
+                + "  T:" + ingredient._temperatureScore * 100
+                + ")\n";
+        }
+
+        Debug.Log(debugScore);
     }
 
     public void GameEnd()
