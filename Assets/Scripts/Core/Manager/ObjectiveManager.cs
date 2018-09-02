@@ -41,6 +41,8 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
     private bool _firstRecipeReceived = false;
     private bool _alreadyShipped = false;
 
+    public static bool GameStarted { get { return Instance._gameStarted; } }
+
     public override void OnStartGame()
     {
         _RemainingGameTime = _GameDuration;
