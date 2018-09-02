@@ -30,10 +30,12 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
 
     #endregion // ATTRIBUTES
 
+    public static event Action OnGameStarted;
     public static event Action<Recipes.SRecipe> OnRecipeChanged;
     public static event Action<SRecipeScore> OnRecipeShipped;
     public static event Action OnRecipeInterlude;
 
+    private bool _gameStarted = false;
     private bool _firstRecipeReceived = false;
     private bool _alreadyShipped = false;
 
@@ -42,10 +44,18 @@ public class ObjectiveManager : BaseManager<ObjectiveManager> {
         _RemainingGameTime = _GameDuration;
         _RecipeInterludeRemaining = _RecipeInterludeInterval;
         _RecipeTickRemaining = _RecipeTickInterval;
+        _gameStarted = true;
+
+        if (OnGameStarted != null) OnGameStarted();
     }
 
     public override void OnUpdateManager(float deltaTime)
     {
+        if (!_gameStarted)
+        {
+            return;
+        }
+
         if (_firstRecipeReceived)
         {
             _RemainingGameTime -= deltaTime;

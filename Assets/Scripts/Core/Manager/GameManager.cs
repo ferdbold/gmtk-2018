@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     [System.Serializable]
     public class ManagerData
@@ -33,8 +33,10 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region LIFECYCLE
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _freezeMask = new GameFreezeMask(0);
         _managers = new IManager[_managersPrefab.Length];
 
@@ -52,7 +54,6 @@ public class GameManager : MonoBehaviour
     {
         Call_StartManager();
         Call_PostStartManager();
-        Call_StartGame();
     }
 
     private void Update()
@@ -155,6 +156,11 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region API
+    public static void StartGame()
+    {
+        GameManager.Instance.Call_StartGame();
+    }
+
     public static void AddFreeze(GameFreezeMask.FreezeContext context)
     {
         _freezeMask.Add(context);
@@ -180,7 +186,7 @@ public class GameManager : MonoBehaviour
     }
     public static bool IsPaused()
     {
-        return _isPaused;;
+        return _isPaused;
     }
 
     #endregion
